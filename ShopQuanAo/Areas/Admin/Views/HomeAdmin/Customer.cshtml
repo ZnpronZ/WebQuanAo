@@ -1,0 +1,569 @@
+﻿
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nhân Viên/title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!--===============================================================================================-->
+    <link href="~/Areas/Admin/Assets/LayoutEmployee/css/style.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <!--===============================================================================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!--===============================================================================================-->
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript">
+        //Phân Trang Cho Table
+        //<![CDATA[
+        function Pager(tableName, itemsPerPage) {
+            this.tableName = tableName;
+            this.itemsPerPage = itemsPerPage;
+            this.currentPage = 1;
+            this.pages = 0;
+            this.inited = false;
+
+            this.showRecords = function (from, to) {
+                var rows = document.getElementById(tableName).rows;
+                for (var i = 1; i < rows.length; i++) {
+                    if (i < from || i > to)
+                        rows[i].style.display = 'none';
+                    else
+                        rows[i].style.display = '';
+                }
+            }
+
+            this.showPage = function (pageNumber) {
+                if (!this.inited) {
+                    alert("not inited");
+                    return;
+                }
+                var oldPageAnchor = document.getElementById('pg' + this.currentPage);
+                oldPageAnchor.className = 'pg-normal';
+
+                this.currentPage = pageNumber;
+                var newPageAnchor = document.getElementById('pg' + this.currentPage);
+                newPageAnchor.className = 'pg-selected';
+
+                var from = (pageNumber - 1) * itemsPerPage + 1;
+                var to = from + itemsPerPage - 1;
+                this.showRecords(from, to);
+            }
+
+            this.prev = function () {
+                if (this.currentPage > 1)
+                    this.showPage(this.currentPage - 1);
+            }
+
+            this.next = function () {
+                if (this.currentPage < this.pages) {
+                    this.showPage(this.currentPage + 1);
+                }
+            }
+
+            this.init = function () {
+                var rows = document.getElementById(tableName).rows;
+                var records = (rows.length - 1);
+                this.pages = Math.ceil(records / itemsPerPage);
+                this.inited = true;
+            }
+        }
+        //]]>
+    </script>
+    <style>
+        body {
+            background-color: #E4E5E7;
+            font-family: Arial;
+        }
+
+        .main-center {
+            background-color: white;
+            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: flex;
+        }
+
+        #menu {
+            height: 40px;
+            margin-top: 5px;
+            background-color: #394A59;
+        }
+
+        #menu-left {
+            float: left;
+        }
+
+        #menu ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+            #menu ul li {
+                float: left;
+                list-style: none;
+            }
+
+                #menu ul li a {
+                    text-decoration: none;
+                    display: block;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0px 10px;
+                    border-right: 1px solid #ccc;
+                    color: white;
+                }
+
+                    #menu ul li a.active {
+                        color: white;
+                    }
+    </style>
+    <link href="~/Areas/Admin/Assets/IndexAdmin/CSS/all.min.css" rel="stylesheet" />
+</head>
+
+<body onload="time()">
+    <div class="main-center">
+        <div class="container-fluid al">
+            <div id="clock"></div>
+            <Br>
+            <p class="timkiemnhanvien"><b>TÌM KIẾM KHÁCH HÀNG:</b></p><Br><Br>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Nhập tên dữ liệu cần tìm..."
+                   data-toggle="tooltip" data-placement="bottom" title="Tìm Kiếm Khách hàng">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <br />
+            <br />
+            <!--BUTTON ADD-->
+            <div class="container">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm mới</button>
+                <br />
+                <br />
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Thông tin khách hàng</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="margin: 5px 10px ">
+                                    <span>Mã khách hàng : </span>
+                                    <span><input type="text" id="MaKH" placeholder="Nhập mã khách hàng" /></span>
+                                </div>
+                                <div style="margin: 5px 10px">
+                                    <span>Tên khách hàng: </span>
+                                    <span><input type="text" id="HoTen" placeholder="Nhập họ tên khách hàng" /></span>
+                                </div>
+                                <div style="margin: 5px 10px">
+                                    <span>Địa chỉ      : </span>
+                                    <span><input type="text" id="DiaChi" placeholder="Nhập địa chỉ" /></span>
+                                </div>
+                                <div style="margin: 5px 10px">
+                                    <span>Số điện thoại: </span>
+                                    <span><input type="text" id="SDT" placeholder="Nhập số điện thoại" /></span>
+                                </div>
+                                <div style="margin: 5px 10px">
+                                    <span>Tài khoản      : </span>
+                                    <span><input type="text" id="TaiKhoan" placeholder="Nhập Tài khoản" /></span>
+                                </div>
+                                <div style="margin: 5px 10px">
+                                    <span>Mật khẩu      : </span>
+                                    <span><input type="text" id="MatKhau" placeholder="Nhập mật khẩu" /></span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="addNV" class="btn btn-default" data-dismiss="modal">Thêm</button>
+                                <button type="button" id="Sua-OK" class="btn btn-default" data-dismiss="modal" style="display:none">Sửa</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--<button class="add" type="button" data-toggle="tooltip" data-placement="top"
+                    title="Thêm Nhân Viên">
+                <i class="fas fa-user-plus"></i>
+            </button>-->
+            <div class="table-title">
+                <div class="row">
+
+                </div>
+
+            </div>
+            <table class="table table-bordered" id="myTable">
+                <thead>
+                    <tr class="ex">
+                        <th>Mã Khách Hàng</th>
+                        <th>Tên Khách Hàng</th>
+                        <th>Địa Chỉ</th>
+                        <th>Số Điện Thoại</th>
+
+                        <th>Tài Khoản</th>
+                        <th>Mật Khẩu</th>
+                        <th width="100px">Tính Năng</th>
+                    </tr>
+                </thead>
+                <tbody id="load_data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr class="hr1">
+    <script src="~/Areas/Admin/Assets/IndexAdmin/JS/jquery.min.js"></script>
+    <script type="text/javascript">
+        //Lọc Dữ Liệu
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue, alltags, isFound, j;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                // td = tr[i].getElementsByTagName("td")[0];
+                alltags = tr[i].getElementsByTagName("td");
+                isFound = false;
+                for (j = 0; j < alltags.length; j++) {
+                    td = alltags[j];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            j = alltags.length;
+                            isFound = true;
+                        }
+                    }
+                }
+                if (!isFound && tr[i].className !== "header") {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        //Lọc Table
+        function sortTable() {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[0];
+                    y = rows[i + 1].getElementsByTagName("TD")[0];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    swal("Thành Công!", "Bạn Đã Lọc Thành Công", "success");
+                }
+            }
+        }
+        //Thời Gian
+        function time() {
+            var today = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Chủ Nhật";
+            weekday[1] = "Thứ Hai";
+            weekday[2] = "Thứ Ba";
+            weekday[3] = "Thứ Tư";
+            weekday[4] = "Thứ Năm";
+            weekday[5] = "Thứ Sáu";
+            weekday[6] = "Thứ Bảy";
+            var day = weekday[today.getDay()];
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            nowTime = h + ":" + m + ":" + s;
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+            tmp = '<i class="fa fa-clock-o" aria-hidden="true"></i> <span class="date">' + today + ' | ' + nowTime +
+                '</span>';
+            document.getElementById("clock").innerHTML = tmp;
+            clocktime = setTimeout("time()", "1000", "Javascript");
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+        }
+
+        //Thêm Bảng
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            var actions = $("table td:last-child").html();
+            // Append table with add row form on add new button click
+            $(".add-new").click(function () {
+                $(this).attr("disabled", "disabled");
+                var index = $("table tbody tr:last-child").index();
+                var row = '<tr>' +
+                    '<td><input type="text" class="form-control" id="makh" placeholder="Nhập mã khách hàng"></td>' +
+                    '<td><input type="text" class="form-control" id="hoten" placeholder="Nhập họ tên khách hàng"></td>' +
+                    '<td><input type="text" class="form-control" id="diachi" value="" placeholder="Nhập địa chỉ"></td>' +
+                    '<td><input type="text" class="form-control" id="sdt" placeholder="Nhập số điện thoại"></td>' +
+                    '<td><input type="text" class="form-control" id="taikhoan" value="" placeholder="Nhập tài khoản"></td>' +
+                    '<td><input type="text" class="form-control" id="matkhau" value="" placeholder="Nhập mật khẩu"></td>' +
+                    '<td>' + actions + '</td>' +
+                    '</tr>';
+                $("table").append(row);
+                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+            //Add Hàng
+            $(document).on("click", ".add", function () {
+                var empty = false;
+                var input = $(this).parents("tr").find('input[type="text"]');
+                input.each(function () {
+                    if (!$(this).val()) {
+                        $(this).addClass("error");
+                        swal("Thông Báo!", "Dữ Liệu Trống Vui Lòng Kiểm Tra", "error");
+                        empty = true;
+                    } else {
+                        $(this).removeClass("error");
+                        swal("Thông Báo!", "Bạn Chưa Nhập Dữ Liệu", "error");
+                    }
+                });
+                $(this).parents("tr").find(".error").first().focus();
+                if (!empty) {
+                    input.each(function () {
+                        $(this).parent("td").html($(this).val());
+                        swal("Thành Công", "Bạn Đã Cập Nhật Thành Công", "success");
+                    });
+                    $(this).parents("tr").find(".add, .edit").toggle();
+                    $(".add-new").removeAttr("disabled");
+
+                }
+            });
+            // Edit Hàng
+            $(document).on("click", ".edit", function () {
+                $(this).parents("tr").find("td:not(:last-child)").each(function () {
+                    $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+                });
+                $(this).parents("tr").find(".add, .edit").toggle();
+                $(".add-new").attr("disabled", "disabled");
+            });
+            jQuery(function () {
+                jQuery(".add").click(function () {
+                    swal("Thành Công!", "Bạn Đã Sửa Thành Công", "success");
+                });
+            });
+            // Delete Hàng
+            $(document).on("click", ".delete", function () {
+                $(this).parents("tr").remove();
+                swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success");
+                $(".add-new").removeAttr("disabled");
+            });
+        });
+
+        jQuery(function () {
+            jQuery(".cog").click(function () {
+                swal("Sorry!", "Tính Năng Này Chưa Có", "error");
+            });
+        });
+    </script>
+    <!--Tooltip-->
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            LoadData();
+            function LoadData() {
+
+                $.ajax({
+                    url: 'https://localhost:44360/api/Customer',
+                    method: 'GET',
+                    contentType: 'application/json',
+                    success: function (rs) {
+
+                        for (let i = 0; i < rs.length; ++i) {
+
+                            $('#load_data').append(`<tr><td>${rs[i].MaKH}</td><td>${rs[i].HoTen}</td><td>${rs[i].DiaChi}</td><td>${rs[i].Sdt}</td><td>${rs[i].TaiKhoan}</td><td>${rs[i].MatKhau}</td><td><a class="add" title="Lưu Lại" data-id="${rs[i].MaNV}" data-toggle="tooltip"> </a> <a class="btnedit" data-toggle="modal" data-target="#myModal" title="Sửa"  data-id="${rs[i].MaKH}"><i class="fas fa-user-edit" style="margin-left:20px"></i>
+
+</a> <a class="delete" data-id="${rs[i].MaKH}" title="Xóa" data-toggle="tooltip"><i class="fas fa-user-times"></i></a></td></tr>`)
+
+
+                        }
+
+                        $(".delete").click(function () {
+
+                            console.log($(this).data().id)
+                            const link = `https://localhost:44360/api/Customer/delete/${$(this).data().id}`
+                            console.log(link)
+                            $.ajax({
+                                url: link,
+                                method: 'DELETE',
+                                contentType: 'application/json',
+                                success: function (rs) {
+
+                                    window.location.href = "https://localhost:44360/Admin/HomeAdmin/Customer"
+                                }
+                            })
+                        })
+                        $('#addNV').click(function () {
+                            console.log("dd")
+                            $('#addNV').css('display', 'block')
+                            $('#Sua-OK').css('display', 'none')
+                            if ($("#MaKH").val() == '' || $("#HoTen").val() == '' || $("#SDT").val() == '' || $("#DiaChi").val() == '' || $("#TaiKhoan").val() == '' || $("#MatKhau").val() == '') {
+                                alert('Vui lòng nhập tất cả các trường!!!')
+                            }
+
+                            const link = `https://localhost:44360/api/Customer?id=${$("#MaKH").val()}&HoTen=${$("#TenKH").val()}&SDT=${$("#SDT").val()}&DiaChi=${$("#DiaChi").val()}&TaiKhoan=${$("#TaiKhoan").val()}&MatKhau=${$("#MatKhau").val()}`
+                            console.log(link)
+                            //$('form').attr('action', link)
+                            $.ajax({
+                                url: link,
+                                method: 'POST',
+                                contentType: 'application/json',
+                                success: function (rs) {
+                                    console.log("true")
+                                }
+                            })
+
+                        })
+
+                        $("#timkiem").click(function () {
+
+                            const link = `https://localhost:44360/api/Customer/get/${$("#myInput").val()}`
+
+                            $.ajax({
+                                url: link,
+                                method: 'GET',
+                                contentType: 'application/json',
+                                success: function (rs) {
+                                    $('#loadtk').html("")//nhớ thêm dòng này
+                                    $('#loadtk').append(`<tr><td> ${rs.MaKH} </td><td>${rs.HoTen}</td><td>${rs.DiaChi}</td><td>${rs.Sdt}</td><td>${rs.TaiKhoan}</td><td>${rs.MatKhau}</td>`)
+                                }
+                            })
+                        })
+                        let id;
+                        $(".btnedit").click(function () {
+                            $('#addNV').css('display', 'none')
+                            $('#Sua-OK').css('display', 'block')
+                            const link = `https://localhost:44360/api/Customer/get/${$(this).data().id}`
+
+                            $.ajax({
+                                url: link,
+                                method: 'GET',
+                                contentType: 'application/json',
+                                success: function (list) {
+                                    console.log(list)
+
+                                    $('.modal-body > div').eq(0).find('input').val(list[0].MaKH)
+                                    $('.modal-body > div').eq(1).find('input').val(list[0].HoTen)
+                                    $('.modal-body > div').eq(2).find('input').val(list[0].DiaChi)
+                                    $('.modal-body > div').eq(3).find('input').val(list[0].Sdt)
+                                    $('.modal-body > div').eq(4).find('input').val(list[0].TaiKhoan)
+                                    $('.modal-body > div').eq(5).find('input').val(list[0].MatKhau)
+
+
+
+
+                                }
+                            })
+
+
+
+
+
+                        })
+                        $('#Sua-OK').click(function () {
+                            $('#addNV').css('display', 'block')
+                            $('#Sua-OK').css('display', 'none')
+
+                            const linksua = `https://localhost:44360/api/Customer?id=${$('.modal-body > div').eq(0).find('input').val()}&HoTen=${$('.modal-body > div').eq(1).find('input').val()}&DiaChi=${$('.modal-body > div').eq(2).find('input').val()}&SDT=${$('.modal-body > div').eq(3).find('input').val()}&TaiKhoan=${$('.modal-body > div').eq(4).find('input').val()}&MatKhau=${$('.modal-body > div').eq(5).find('input').val()}`
+                            console.log(linksua)
+                            //$('form').attr('action', link)
+                            $.ajax({
+                                url: linksua,
+                                method: 'PUT',
+                                contentType: 'application/json',
+                                success: function (rs) {
+                                    window.location.href = "https://localhost:44360/Admin/HomeAdmin/Customer"
+                                }
+                            })
+                        })
+
+                        $('#btn-icon-ok').click(function () {
+                            const linksua = `https://localhost:44360/api/Customer?id=${id}&HoTen=${$("#hoten").val()}&DiaChi=${$("#diachi").val()}&SDT=${$("#sdt").val()}&TaiKhoan=${$("#taikhoan").val()}&MatKhau=${$("#matkhau").val()}`
+
+                            $.ajax({
+                                url: linksua,
+                                method: "PUT",
+                                contentType: "application/json",
+                                success: function (list) {
+                                    console.log(list)
+                                    console.log(linksua)
+
+                                }
+
+                            })
+
+                        })
+                    }
+                    /////////
+                })
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+

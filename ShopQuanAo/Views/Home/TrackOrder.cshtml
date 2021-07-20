@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "TrackOrder";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Track Your Oder</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section page-404">
+        <h2 class="hidden">page</h2>
+        <div class="container">
+            <div class="row">
+                <div class="page-not-found track-order">
+                    <h2>track your oder</h2>
+                    <h3>Please enter your Order ID in the box below and press Enter. This was given to you on your receipt </h3>
+                    <h3>and in the confirmation email you should have received.</h3>
+                    <div class="form-order-content">
+                        <form id="form-order" method="post">
+                            <div class="form-group">
+                                <label for="oder-id">oder ID</label>
+                                <input type="text" class="form-control" id="oder-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="billing-email">billing email</label>
+                                <input type="text" class="form-control" id="billing-email">
+                            </div>
+                            <div class="form-group">
+                                <button id="track" name="track" title="track" class="button" type="submit"><span><span>track</span></span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+
+</div>
+<!-- /Content area -->
+<!--[if gte IE 9]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-config.js"></script>
+<!--<![endif]-->

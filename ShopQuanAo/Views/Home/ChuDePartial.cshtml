@@ -1,0 +1,56 @@
+﻿@using ShopQuanAo.Models;
+@model List<SanPham>
+
+@foreach (var item in Model)
+{
+    <div class="item">
+        <div class="product-item">
+            <div class="per-product">
+                <div class="images-container">
+                    <div class="product-hover">
+                        <span class="sticker top-left"><span class="labelnew">New</span></span>
+                        <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                        <a href="#" class="overlay"></a>
+                        <a class="product-image" href="detail.html">
+                            <img width="280" height="357" alt="The Net Bag in Navy" src=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + item.Anh) class="img-responsive">
+                            <span class="product-img-back">
+                                <img width="280" height="357" alt="The Net Bag in Navy" src=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + item.Anh_hover) class="img-responsive">
+                            </span>
+                        </a>
+                    </div>
+                    <div class="actions-no hover-box">
+                        <div class="actions">
+
+                                
+
+                                <ul class="add-to-links pull-left-none">
+                                    <li class="pull-left-none">
+                                        <a  data-toggle="modal" href="@Url.Action("AddItem","Cart",new { @MaSP = item.MaSP , @SoLuong=1 })" title="Add to Cart"><i class="icon_cart_alt"></i></a>
+                                    </li>
+                                    <li class="link-view pull-left-none">
+                                        <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                    </li>
+                                    <li class="pull-left-none">
+                                        <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                            <i class="fa fa-heart-o"></i>Add to Wishlist
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-textlink clearfix">
+                    <p id="takeMaSP">@item.MaSP</p>
+                    <h2 class="product-name">
+                        <a title="Name Product" href="@Url.Action("ChiTietSP","Product", new { @MaSP = item.MaSP })">@item.TenSP</a>
+                    </h2>
+                    <div class="price-box">
+                        <span class="regular-price">
+                            <span class="price">@item.GiaBan</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

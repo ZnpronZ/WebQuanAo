@@ -1,0 +1,258 @@
+﻿@using ShopQuanAo.Models
+@model List<Blog>
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Blog</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section no-padding-top with-sidebar">
+        <h2 class="hidden">page</h2>
+        <div class="container">
+            <div class="row">
+
+                <!-- content -->
+                <section id="content" class="content col-sm-8 col-md-9">
+                    <h2 class="hidden">content</h2>
+                    <!-- Blog posts -->
+                    @foreach (var item in Model)
+                    {
+                        <article class="post-wrap">
+                            <div class="post-media">
+                                <div class="item"><img class="img-responsive" src=@Url.Content("~/Assets/LayOutIndex/images/preview/blog/" + item.AnhBlog) alt="images" /></div>
+                            </div>
+                            <div class="post-header">
+                                <div class="post-date">
+                                    <div class="postDetails">
+                                        <div class="number"><span>@item.ThoiGian</span></div>
+                                    </div>
+                                </div>
+                                <h2 class="post-title"><a href="blog-single.html">@item.TieuDe</a></h2>
+                                <div class="post-meta">Post by: <span>@item.NgPost</span></div>
+                            </div>
+                            <div class="post-body">
+                                <div class="post-excerpt">
+                                    <p>
+                                        @item.NoiDung
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="post-footer">
+                                <span class="post-read-more"><a href="@Url.Action("ChiTietBlog","Home",new { @MaBlog = item.MaBlog })" class="btn btn-theme btn-theme-red">Read more</a></span>
+                            </div>
+                        </article>
+                        <!-- -->
+                    }
+
+
+                    <!-- /Blog posts -->
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#">«</a></li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+                    <!-- /Pagination -->
+
+                </section>
+                <!-- /content -->
+                <!-- sidebar -->
+                <aside id="sidebar" class="sidebar col-sm-4 col-md-3 ">
+
+                    <div class="block widget widget-categories">
+                        <div class="block-title">
+                            <strong><span>CATEGORY</span></strong>
+                        </div>
+                        <div class="block-content toggle-content">
+                            <ol>
+                                <li>
+                                    <a href="#">
+                                        Web Design
+                                        <span class="count">(3)</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        PSD Template
+                                        <span class="count">(6)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        WordPress
+                                        <span class="count">(4)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        E-Commerce
+                                        <span class="count">(3)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Magento
+                                        <span class="count">(10)</span>
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class=" block widget block-recent">
+                        <div class="block-title">
+                            <strong><span>RECENT POST</span></strong>
+                        </div>
+                        <div class="block-content toggle-content">
+                            <div class="recent-content">
+                                <div class="item">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">Sed vel dapibus risus</a></h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel euismod neque.</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">Sed vel dapibus risus</a></h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel euismod neque.</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">Sed vel dapibus risus</a></h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel euismod neque.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block widget block-arrchive">
+                        <div class="block-title">
+                            <strong><span>ARRCHIVE</span></strong>
+                        </div>
+                        <div class="block-content toggle-content">
+                            <ol>
+                                <li>
+                                    <a href="#">
+                                        September 2014
+                                        <span class="count">(3)</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        August 2014
+                                        <span class="count">(6)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        July 2014
+                                        <span class="count">(4)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        October 2013
+                                        <span class="count">(3)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        January 2013
+                                        <span class="count">(10)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        December 2012
+                                        <span class="count">(10)</span>
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="widget widget-tag-cloud block">
+                        <div class="block-title">
+                            <strong><span>Tags</span></strong>
+                        </div>
+                        <ul>
+                            <li><a href="#">Sunglasses</a></li>
+                            <li><a href="#">Handbag</a></li>
+                            <li><a href="#">Leather</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Sexy Dress</a></li>
+                            <li><a href="#">Vintage</a></li>
+                            <li><a href="#">Shoping</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </aside>
+                <!-- /sidebar -->
+
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+
+</div>
+<!-- /Content area -->
+
+<!--[if gte IE 9]><!--><script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/plugins/jquery.cookie.js"></script>
+<script src="js/theme-config.js"></script>
+<!--<![endif]-->

@@ -1,0 +1,151 @@
+﻿
+@model ShopQuanAo.Models.multidata
+<!-- sidebar -->
+<aside class="sidebar col-sm-4 col-md-3">
+
+    <div class="widget-menu">
+        <div class="block block-anav">
+            <div class="block-title">
+                <strong><span>Categories</span></strong>
+            </div>
+            <div id="menu-left">
+                <ul class="sf-menu nav">
+                    <li>
+                        <a href="page-left-sidebar.html">Category</a>
+                        <ul>
+                            @foreach (var item in Model.gioitinh)
+                            {
+                                <li><a href="@Url.Action("CategoryGioiTinh","Product", new { @GioiTinh = item.MaGT })">@item.GioiTinh1</a></li>
+
+                            }
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="page-left-sidebar.html">Accessories</a>
+                        <ul>
+                            @foreach (var item in Model.loaisp)
+                            {
+                                <li><a href="@Url.Action("CategoryLoai","Product", new { @Loai=item.MaLoai })">@item.Loai</a></li>
+
+                            }
+                        </ul>
+                    </li>
+                    <li><a href="page-left-sidebar.html">Shoes</a></li>
+                    <li><a href="page-left-sidebar.html">Jeans</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    <li><a href="@Url.Action("About", "Home")">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="block block-layered-nav">
+        <div class="block-title">
+            <strong><span>Shop By</span></strong>
+        </div>
+        <div class="block-content">
+            <dl id="narrow-by-list">
+                <div class="narrow-box">
+                    <dt class="odd">Manufacturer</dt>
+
+                    <dd class="odd toggle-content">
+                        <ol>
+                            <li>
+                                <a href="#">buberry</a>
+                                <span class="count">(3)</span>
+                            </li>
+                            <li>
+                                <a href="#">chanel</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li>
+                                <a href="#">gucci</a>
+                                <span class="count">(6)</span>
+                            </li>
+                            <li>
+                                <a href="#">versace</a>
+                                <span class="count">(3)</span>
+                            </li>
+                        </ol>
+                    </dd>
+                </div>
+                <div class="narrow-box">
+                    <dt class="even">Price</dt>
+
+                    <dd class="even toggle-content">
+                        <div id="slider-range"></div>
+                        <div class="input-box slider_range">
+                            <input type="text" class="input-text" id="amount" readonly /> -
+                            <input type="text" class="input-text" id="amount_right" readonly />
+                            <input name="price" class="btn btn-theme btn-theme-red " type="submit" value="Fillter" />
+                        </div>
+                    </dd>
+                </div>
+                <div class="narrow-box">
+                    <dt class="even">Color</dt>
+
+                    <dd class="even toggle-content">
+                        <ol>
+                            <li>
+                                <a href="#">Black</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li>
+                                <a href="#">Blue</a>
+                                <span class="count">(3)</span>
+                            </li>
+                            <li>
+                                <a href="#">Orange </a>
+                                <span class="count">(4)</span>
+                            </li>
+                            <li>
+                                <a href="#">Red</a>
+                                <span class="count">(2)</span>
+                            </li>
+                            <li>
+                                <a href="#">white</a>
+                                <span class="count">(3)</span>
+                            </li>
+                        </ol>
+                    </dd>
+                </div>
+                <div class="narrow-box">
+                    <dt class="last odd">Size</dt>
+
+                    <dd class="last odd toggle-content">
+                        <ol>
+                            <li>
+                                <a href="#">XS</a>
+                                <span class="count">(4)</span>
+                            </li>
+                            <li>
+                                <a href="#">XXL </a><span class="count">(1)</span>
+                            </li>
+                        </ol>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="widget widget-tag-cloud block">
+        <div class="block-title">
+            <strong><span>Tags</span></strong>
+        </div>
+        <ul>
+            <li><a href="#">Sunglasses</a></li>
+            <li><a href="#">Handbag</a></li>
+            <li><a href="#">Leather</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Sexy Dress</a></li>
+            <li><a href="#">Vintage</a></li>
+            <li><a href="#">Shoping</a></li>
+        </ul>
+    </div>
+
+</aside>
+<!-- /sidebar -->

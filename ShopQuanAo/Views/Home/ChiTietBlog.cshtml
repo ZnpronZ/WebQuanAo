@@ -1,0 +1,407 @@
+﻿@model ShopQuanAo.Models.Blog
+
+@{
+    ViewBag.Title = "ChiTietBlog";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="active">Blog detail</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section no-padding-top with-sidebar">
+        <h2 class="hidden">sidebar</h2>
+        <div class="container">
+            <div class="row">
+
+                <!-- content -->
+                <section id="content" class="content col-sm-8 col-md-9">
+                    <h2 class="hidden">content</h2>
+                    <article class="post-wrap">
+                        <div class="post-media embed-responsive embed-responsive-16by9">
+                            <img class="img-responsive" src=@Url.Content("~/Assets/LayOutIndex/images/preview/blog/" + Html.DisplayFor(model => model.AnhBlog))  alt="images" />
+                        </div>
+                        <div class="post-header">
+                            <div class="post-meta">@Html.DisplayFor(model => model.ThoiGian) </div>
+                            <h2 class="post-title">@Html.DisplayFor(model => model.TieuDe)</h2>
+                            <div class="author">
+                                <h4>POST BY: <span>@Html.DisplayFor(model => model.NgPost)</span></h4>
+                            </div>
+                        </div>
+                        <div class="post-body">
+                            <p>@Html.DisplayFor(model => model.NoiDung)</p>
+                        </div>
+                        <div class="post-footer">
+                            <span class="post-tags"><i class="fa fa-tag"></i> <a href="#">Egestas</a>, <a href="#">Nulla</a>, <a href="#">Sagittis</a>, <a href="#">Sed</a></span> &nbsp;
+                            <div class="share_this">
+                                <h2>share: </h2>
+                                <ul class="list-inline">
+                                    <li><a class="social-link twitter" href="#"><i class="fa fa-twitter"><span class="hidden">twitter</span></i></a></li>
+                                    <li><a class="social-link google-plus" href="#"><i class="fa fa-google-plus"><span class="hidden">google-plus</span></i></a></li>
+                                    <li><a class="social-link facebook" href="#"><i class="fa fa-facebook"><span class="hidden">facebook</span></i></a></li>
+                                    <li><a class="social-link tumblr" href="#"><i class="fa fa-tumblr"><span class="hidden">tumblr</span></i></a></li>
+                                    <li><a class="social-link pinterest" href="#"><i class="fa fa-pinterest"><span class="hidden">pinterest</span></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- About the author -->
+                    <div class="about-the-author clearfix">
+                        <div class="media">
+                            <div class="author-work pull-left">
+                                <img class="media-object" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-1.jpg" alt="images" />											<h4 class="media-heading"><a href="#">John Doe</a></h4>												<span class="work">Designer</span>
+                            </div>
+                            <div class="media-body">
+                                <p>
+                                    Praesent in tincidunt lorem. Nam in magna ut odio pharetra mollis at sit amet
+                                    elit. Praesent tincidunt nisi non tellus varius euismod. Proin eget venenatis
+                                    ipsum, vitae malesuada turpis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /About the author -->
+                    <!-- Comments -->
+                    <div class="comments block">
+                        <div class="block-title">
+                            <h3>
+                                <span>Comments<span class="count">(3)</span></span>
+                            </h3>
+                        </div>
+
+                        <div class="media comment">
+                            <a href="#" class="pull-left comment-avatar">
+                                <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-2.jpg" class="media-object" />
+                            </a>
+                            <div class="media-body">
+                                <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>											<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit, a placerat magna est nec justo. Nam iaculis velit at lacus gravida, et dictum nulla dapibus.</p>
+
+                            </div>
+                        </div>
+                        <div class="media comment">
+                            <a href="#" class="pull-left comment-avatar">
+                                <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-3.jpg" class="media-object" />
+                            </a>
+                            <div class="media-body">
+                                <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>											<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit.</p>
+
+                            </div>
+                        </div>
+                        <div class="media comment">
+                            <a href="#" class="pull-left comment-avatar">
+                                <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-4.jpg" class="media-object" />
+                            </a>
+                            <div class="media-body">
+                                <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>											<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit.</p>
+
+                                <div class="media comment">
+                                    <a href="#" class="pull-left comment-avatar">
+                                        <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-5.jpg" class="media-object" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>													<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit, a placerat magna est nec justo. Nam iaculis velit at lacus gravida, et dictum nulla dapibus.</p>
+
+                                    </div>
+                                </div>
+                                <div class="media comment">
+                                    <a href="#" class="pull-left comment-avatar">
+                                        <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-2.jpg" class="media-object" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>													<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit.</p>
+
+                                    </div>
+                                </div>
+                                <div class="media comment">
+                                    <a href="#" class="pull-left comment-avatar">
+                                        <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-3.jpg" class="media-object" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>
+                                        <p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media comment">
+                            <a href="#" class="pull-left comment-avatar">
+                                <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-4.jpg" class="media-object" />
+                            </a>
+                            <div class="media-body">
+                                <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>											<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit, a placerat magna est nec justo. Nam iaculis velit at lacus gravida, et dictum nulla dapibus.</p>
+
+                            </div>
+                        </div>
+                        <div class="media comment">
+                            <a href="#" class="pull-left comment-avatar">
+                                <img alt="images" src="~/Assets/LayOutIndex/images/preview/avatars/avatar-v2-5.jpg" class="media-object" />
+                            </a>
+                            <div class="media-body">
+                                <p class="comment-meta"><span class="comment-author"><a href="#">John Doe</a>  </span></p>											<p class="comment-reply"><span>3 minute ago</span><span class="space">/</span><a href="#">Repost</a><span class="space">/</span><a href="#">Reply</a></p>
+                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscpit ipsum sed sapien dignissim, eu blandit mi volutpat. Curabitur tincidunt, tellus sit amet rutrum sodales, velit orci consectetur velit, a placerat magna est nec justo. Nam iaculis velit at lacus gravida, et dictum nulla dapibus.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Comments -->
+                    <!-- Leave a Comment -->
+                    <div class="comments-form">
+                        <h4 class="block-title">Leave a Comment</h4>
+                        <form name="af-form" method="post" action="#contact" class="af-form" id="af-form">
+                            <div class="col-md-4 no-padding-left text-left">
+                                <div class="af-outer af-required">
+                                    <div class="form-group af-inner">
+                                        <input type="text" name="name" id="name" placeholder="Your Name *" value="" size="30"
+                                               data-toggle="tooltip" title="Name is required"
+                                               class="form-control placeholder" />
+                                    </div>
+                                </div>
+
+                                <div class="af-outer af-required">
+                                    <div class="form-group af-inner">
+                                        <input type="text" name="email" id="email" placeholder="Your Email *" value="" size="30"
+                                               data-toggle="tooltip" title="Email is required"
+                                               class="form-control placeholder" />
+                                    </div>
+                                </div>
+
+                                <div class="af-outer af-required">
+                                    <div class="form-group af-inner">
+                                        <input type="text" name="phone" id="phone" placeholder="Your Phone *" value="" size="30"
+                                               data-toggle="tooltip" title="Subject is required"
+                                               class="form-control placeholder" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 text-left">
+                                <div class="form-group af-inner">
+                                    <textarea name="message" id="input-message" placeholder="Your Message" rows="4" cols="50"
+                                              data-toggle="tooltip" title="Message is required"
+                                              class="form-control placeholder"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12 no-padding-left text-left">
+                                <div class="af-outer af-required">
+                                    <div class="form-group af-inner">
+                                        <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme" id="submit_btn" value="Send message" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <!-- /Leave a Comment -->
+
+                </section>
+                <!-- /content -->
+                <!-- sidebar -->
+                <aside id="sidebar" class="sidebar col-sm-4 col-md-3 ">
+                    <div class="block">
+                        <div class="block-title">
+                            <strong>
+                                <span>Blog Posts Archive</span>
+                            </strong>
+                        </div>
+                        <div class="block-content toggle-content archive">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        September 2014
+                                        <small>21</small>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        June 2014
+                                        <small>12</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        April 2014
+                                        <small>19</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        March 2014
+                                        <small>36</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        February 2013
+                                        <small>14</small>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-title">
+                            <strong>
+                                <span>Recent</span>
+                            </strong>
+                        </div>
+                        <div class="block-content toggle-content">
+                            <div class="">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">Sed vel dapibus risus</a></h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel euismod neque.</p>
+                                        <p class="post-date"><i class="fa fa-clock-o"></i> about 5 house ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">Praesent a purus vel </a></h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel euismod neque.</p>
+                                        <p class="post-date"><i class="fa fa-clock-o"></i> about 5 house ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="block block_gallery">
+                        <div class="block-title">
+                            <strong>
+                                <span>Blog Posts Archive</span>
+                            </strong>
+                        </div>
+                        <div class="block-content">
+                            <ul>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-1.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-2.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-3.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-4.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-5.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-6.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-1.jpg" alt="images" /></a></li>
+                                <li><a href="#"><img src="~/Assets/LayOutIndex/images/preview/flickr/flickr-feed-2.jpg" alt="images" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget widget-tag-cloud">
+                        <h4 class="widget-title">Tags</h4>
+                        <ul>
+                            <li><a href="#">Creative</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Art</a></li>
+                            <li><a href="#">Autpor Name</a></li>
+                            <li><a href="#">Coorperate</a></li>
+                            <li><a href="#">Wordpress</a></li>
+                            <li><a href="#">3D Animations</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h4 class="widget-title">Join The Newsletter</h4>
+
+                        <form method="post" action="#">
+                            <div class="form-group">
+                                <input type="text" placeholder="Type and hit enter... " class="form-control"
+                                       name="search" title="search">
+                                <input type="submit" hidden="hidden" />
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="widget">
+                        <h4 class="widget-title">Recent Tweets</h4>
+                        <div class="recent-tweets">
+                            <div class="media">
+                                <span class="media-object pull-left"><i class="fa fa-twitter"></i></span>
+                                <div class="media-body">
+                                    <p><a href="#">twittername</a> At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                    <small>1 minute ago</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <span class="media-object pull-left"><i class="fa fa-twitter"></i></span>
+                                <div class="media-body">
+                                    <p><a href="#">twittername</a> At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                    <small>1 minute ago</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <span class="media-object pull-left"><i class="fa fa-twitter"></i></span>
+                                <div class="media-body">
+                                    <p><a href="#">twittername</a> At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                    <small>1 minute ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+                <!-- /sidebar -->
+
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+
+</div>
+<!-- /Content area -->
+<!--[if gte IE 9]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-config.js"></script>
+<!--<![endif]-->

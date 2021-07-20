@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Contacts</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <section class="page-section no-padding" id="location">
+        <h2 class="hidden">location</h2>
+        <div class="container full-width">
+
+            <!-- Google map -->
+            <div class="google-map">
+                <div id="map-canvas"></div>
+            </div>
+            <!-- /Google map -->
+
+        </div>
+    </section>
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section no-padding-top contact_detail">
+        <h2 class="hidden">page</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 text-left">
+                    <h2 class="section-title">leave a meassage!</h2>
+                    <!-- Contact form -->
+                    <form name="af-form" method="post" action="#contact" class="af-form" id="af-form">
+                        <div class="col-md-4 no-padding-left text-left">
+                            <div class="af-outer af-required">
+                                <div class="form-group af-inner">
+                                    <input type="text" name="name" id="name" placeholder="Your Name *" value="" size="30" data-toggle="tooltip" title="Name is required" class="form-control placeholder" />
+                                </div>
+                            </div>
+                            <div class="af-outer af-required">
+                                <div class="form-group af-inner">
+                                    <input type="text" name="email" id="email" placeholder="Your Email *" value="" size="30" data-toggle="tooltip" title="Email is required" class="form-control placeholder" />
+                                </div>
+                            </div>
+                            <div class="af-outer af-required">
+                                <div class="form-group af-inner">
+                                    <input type="text" name="phone" id="phone" placeholder="Your Phone *" value="" size="30" data-toggle="tooltip" title="Subject is required" class="form-control placeholder" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 text-left">
+                            <div class="form-group af-inner">
+                                <textarea name="message" id="input-message" placeholder="Your Message" rows="4" cols="50" data-toggle="tooltip" title="Message is required" class="form-control placeholder"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-padding-left text-left">
+                            <div class="af-outer af-required">
+                                <div class="form-group af-inner">
+                                    <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme" id="submit_btn" value="Send message" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- /Contact form -->
+
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info">
+
+                        <h2 class="section-title">Milano fashion.</h2>
+
+                        <div class="media-list">
+                            <div class="media">
+                                <div class="media-body">
+                                    <strong>Address:</strong>
+                                    <p>
+                                        987 Main st. New York, NY, 00001, U.S.A
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body">
+                                    <strong>Mobile:</strong>
+                                    <ul>
+                                        <li>(012) 345-7689</li>
+                                        <li>(012) 345-7689</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body">
+                                    <strong>Email:</strong>
+                                    <ul>
+                                        <li>lina@gmail.com</li>
+                                        <li>Michael@libros.us</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+
+</div>
+<!-- /Content area -->
+<!--[if lt IE 9]><script src="js/plugins/jquery/jquery-1.11.1.min.js"></script><![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+@*<script src="~/Assets/LayOutIndex/js/theme-config.js"></script>*@
+<!--<![endif]-->

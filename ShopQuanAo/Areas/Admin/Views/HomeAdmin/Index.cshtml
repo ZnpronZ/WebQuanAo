@@ -1,0 +1,884 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang Quản Lý</title>
+
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+    <link href="~/Areas/Admin/Assets/IndexAdmin/CSS/mystyle.css" rel="stylesheet" />
+    <!-- CSS Global -->
+    <link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/js/plugins/animate/css/animate.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/js/plugins/subscribe-newletter/css/subscribe-better.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/css/slider/slide5.css" rel="stylesheet">
+    <link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #E4E5E7;
+        }
+
+        #menu {
+            background-color: #394A59;
+        }
+    </style>
+</head>
+<body>
+    <!--POP-menu-->
+    <div class="modal fade popup-product-view" id="popup-product-view" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="container">
+                <div class="modal-content">
+
+                    <div class="extended_product_page" id="extended_product_page">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h2 class="modal-title">Retro Spring Woman Dress</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row product-single blocks">
+                                <div class="col-lg-5 col-md-4 col-sm-5 col-xsp-6">
+                                    <div class="block">
+                                        <div class="owl-carousel product-img-carousel">
+                                            @*<div class="item"><a href=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + sanpham.Anh) data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom1.jpg" alt="images" /></a></div>
+                                                <div class="item"><a href=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + item.Anh) data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom2.jpg" alt="images" /></a></div>*@
+                                            <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom3.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom3.jpg" alt="images" /></a></div>
+                                            <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom4.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom4.jpg" alt="images" /></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-shop col-md-7 col-sm-7 col-xs-12">
+                                    <div class="product-shop-content">
+                                        <div class="product-name">
+                                            <h2>Fusce nec facilisi</h2>
+                                        </div>
+                                        <p class="no-rating">
+                                            <a href="#">Be the first to review this product</a>
+                                        </p>
+                                        <div class="product-type-data">
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$79.00</span>
+                                                </span>
+                                            </div>
+                                            <p class="availability in-stock">Availability: <span>In stock</span></p>
+                                        </div>
+                                        <div class="short-description">
+                                            Quisque sollicitudin nulla felis, vel sollicitudin felis mollis in. Cras mauris ligula, pharetra a consectetur a, interdum sit amet ex. Nunc dui nulla, efficitur a tempor non, euismod id libero. Quisque sapien enim, tempus tristique metus ut, ves...
+                                        </div>
+                                        <div class="product-options-wrapper">
+                                            <div class="option-view">
+                                                <span>Color:</span>
+                                                <select class="required-entry super-attribute-select">
+                                                    <option value="">- Select color -</option>
+                                                    <option value="4" data-label="blue">Blue</option>
+                                                    <option value="5" data-label="orange">Orange</option>
+                                                    <option value="7" data-label="white">white</option>
+                                                </select>
+                                            </div>
+                                            <div class="option-view">
+                                                <span>Size:</span>
+                                                <select class="required-entry super-attribute-select">
+                                                    <option value="">- Select size -</option>
+                                                    <option value="4" data-label="s">S</option>
+                                                    <option value="5" data-label="xl">XL</option>
+                                                    <option value="7" data-label="xs">XS</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="product-options-bottom">
+                                            <div class="product-qty">
+                                                <label for="qty">Qty:</label>
+                                                <div class="custom-qty">
+                                                    <button type="button" class="reduced items" onclick="var result = document.getElementById('qty');   var qty = result.value;  if (!isNaN(qty) && qty > 1)result.value--; return false;"> <i class="fa fa-minus-square-o"></i> </button>
+                                                    <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
+                                                    <button type="button" class="increase items" onclick="var result = document.getElementById('qty');   var qty = result.value;  if (!isNaN(qty)) result.value++;return false;"> <i class="fa fa-plus-square-o"></i> </button>
+                                                </div>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <button type="button" onclick="window.location.href='cart.html'" title="Add to Cart" class="button btn-cart">
+                                                    <span> <span class="view-cart">Add to Cart</span> </span>
+                                                </button>
+                                            </div>
+                                            <ul class="add-to-links">
+                                                <li>
+                                                    <a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"> <i class="icon-heart icons"></i> Add to Wishlist </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="link-compare" title="Add to Compare"> <i class="icon-bar-chart icons"></i> Add to Compare </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="link-compare" title="Add to Compare"><i class="fa fa-envelope-o"></i> Email to a Friend </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="share_this">
+                                            <h2>share this:</h2>
+                                            <ul class="list-inline">
+                                                <li><a class="social-link twitter" href="#"><i class="fa fa-twitter"><span class="hidden">twitter</span></i></a></li>
+                                                <li><a class="social-link google-plus" href="#"><i class="fa fa-google-plus"><span class="hidden">google-plus</span></i></a></li>
+                                                <li><a class="social-link facebook" href="#"><i class="fa fa-facebook"><span class="hidden">facebook</span></i></a></li>
+                                                <li><a class="social-link tumblr" href="#"><i class="fa fa-tumblr"><span class="hidden">tumblr</span></i></a></li>
+                                                <li><a class="social-link pinterest" href="#"><i class="fa fa-pinterest"><span class="hidden">pinterest</span></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FROM-->
+    <div class="push-modal-detail">
+        <div style="display: flex;justify-content: flex-end"><a class="close-detail" style="margin: 10px 20px;display: inline-block;width: 30px; height: 30px"><i class="fas fa-times" style="width: 100%;height: 100%;color: #4caf50;cursor: pointer"></i></a></div>
+        <h3 style="text-align: center">Thông tin chi tiết sản phẩm</h3>
+        <div class="detail">
+            <div>
+                <span>Mã sản phẩm: </span>
+                <span><input type="text" id="MaSP" /></span>
+            </div>
+            <div>
+                <span>Tên sản phẩm: </span>
+                <span><input type="text" id="TenSP" /></span>
+            </div>
+            <div>
+                <span>Giá Bán: </span>
+                <span><input type="text" id="GiaBan" /></span>
+            </div>
+            <div>
+                <span>Loại : </span>
+                <span><input type="text" id="Loai" /></span>
+            </div>
+            <div>
+                <span>Tình trạng : </span>
+                <span><input type="text" id="TinhTrang" /></span>
+            </div>
+            <div>
+                <span>Tên ảnh 1: </span>
+                <span>
+                    <input type="text" id="Anh" />
+                    @*<input type="file" id="FileAnh1" style="display:none" />*@
+                </span>
+
+            </div>
+            <div>
+                <span>Giới tính: </span>
+                <span><input type="text" id="GioiTinh" /></span>
+            </div>
+            <div>
+                <span>Mô tả: </span>
+                <span><input type="text" id="MoTa" /></span>
+            </div>
+            <div>
+                <span>Tên ảnh 2: </span>
+                <span><input type="text" id="Anh_hover" /><input type="file" id="FileAnh2" style="display:none" /></span>
+            </div>
+            <div>
+                <button class=" edit-button" style="cursor:pointer"><i class="fas fa-tools"></i>  Sửa</button>
+                <button class=" delete-button" data-id="" style="cursor:pointer"><i class="fas fa-trash-alt"></i>  Xoá</button>
+                <button class=" ok-button" style="cursor:pointer"><i class="fas fa-clipboard-check"></i>  OK</button>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!--ThêmSP-->
+    <span><input class="btn-add" type="submit" value="ADD" style="height:45px; width:90px;margin:30px;background-color:black;color:white;font-weight:bold;font-size:25px" /></span>
+    <!---->
+    <!--Lọc-->
+    <div id="search-box">
+        <select id="selectSP" style="background-color:black; color:white; font-style:italic">
+            <option value="AllSP" style=""> Tất cả sản phẩm </option>
+            <option value="Quan"> Quần</option>
+            <option value="Ao"> Áo</option>
+            <option value="GiaBanTangDan"> Số giá bán tăng dần</option>
+            <option value="ComBo"> ComBo</option>
+        </select>
+        <i class="fas fa-filter" id="filter" style="cursor: pointer; margin-right:10px"></i>
+
+    </div>
+    <!---->
+    <div id="main-center">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <!--Các Fuction -->
+    <script src="~/Areas/Admin/Assets/IndexAdmin/JS/all.js"></script>
+    <script src="~/Areas/Admin/Assets/IndexAdmin/JS/jquery-3.5.1.min.js"></script>
+    <script src="~/Areas/Admin/Assets/IndexAdmin/JS/all.min.js"></script>
+    <script src="~/Areas/Admin/Assets/IndexAdmin/JS/smtp.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.active').click(function (e) {
+
+                LoadData()
+            })
+
+            LoadData();//-gọi hàm LoadData
+
+            function LoadData() {
+                $.ajax({
+                    url: 'https://localhost:44360/api/AdminSP',
+                    method: 'GET',
+                    contentType: 'application/json',
+                    success: function (list) {
+                        const len = list.length
+                        console.log(list)
+
+                     
+                        //                        $('#main-center').append(`
+                        //<div class="container">
+                        //  <div class="row">`)
+                        $('#main-center').find('.container').append(`<div class="row">`)
+                        for (var i = 0; i < len; ++i) {
+                            /* $('#main-center').append(*/
+                            $('#main-center>.container').find('.row').append(`
+                                             <div class="col-3">
+                                                <div class="item">
+                                                                                                                                    <div class="product-item">
+                                                                                                                                        <div class="per-product">
+                                                                                                                                            <div class="images-container">
+                                                                                                                                                <div class="product-hover">
+                                                                                                                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                                                                                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                                                                                                                    <a href="#" class="overlay"></a>
+                                                                                                                                                    <a class="product-image" href="detail.html">
+                                                                                                                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh}" class="img-responsive">
+                                                                                                                                                        <span class="product-img-back">
+                                                                                                                                                            <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh_hover}" class="img-responsive">
+                                                                                                                                                        </span>
+                                                                                                                                                    </a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="actions-no hover-box">
+                                                                                                                                                    <div class="actions">
+                                                                                                                                                        <ul class="add-to-links pull-left-none">
+                                                                                                                                                            <li class="link-view pull-left-none">
+                                                                                                                                                                <a data-target="#popup-product-view" data-toggle="modal" href="#" ><i class="fa fa-search"></i>Quick View</a>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="products-textlink clearfix">
+                                                                                                                                                <p id="takeMaSP">${list[i].MaSP}</p>
+                                                                                                                                                <h2 class="product-name">
+                                                                                                                                                    <a title="Name Product" class="getSP" data-id="${list[i].MaSP}" data-name="${list[i].TenSP}" data-giaban="${list[i].GiaBan}" data-loai="${list[i].Loai}" data-tinhtrang="${list[i].TinhTrang}" data-anh="${list[i].Anh}" data-gioitinh="${list[i].GioiTinh}" data-mota="${list[i].MoTa}" data-anh_hover="${list[i].Anh_hover}">${list[i].TenSP}</a>
+                                                                                                                                                </h2>
+                                                                                                                                                <div class="price-box">
+                                                                                                                                                    <span class="regular-price">
+                                                                                                                                                        <span class="price">${list[i].GiaBan}</span>
+
+                                                                                                                                                    </span>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`)
+                        }
+
+                        $('#main-center').find('.container').append(`</div>`)
+                        $('.getSP').click(function () {
+                            $('.push-modal-detail').toggleClass('push-modal-active');
+                            id = $(this).data().id
+
+                            //Nút Xóa:
+                            $(".delete-button").data("id", id)
+                            console.log($(this).data())
+                            //Get 1 SP:
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(0).val($(this).data().id)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(1).val($(this).data().name)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(2).val($(this).data().giaban)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(3).val($(this).data().loai)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(4).val($(this).data().tinhtrang)
+
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(5).val($(this).data().anh)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(6).val($(this).data().gioitinh)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(7).val($(this).data().mota)
+                            $('.detail').find("div > span:nth-child(2)").children("input").eq(8).val($(this).data().anh_hover)
+
+
+
+
+
+
+                        })
+                    }
+
+                })
+            }
+            //-----Nút Xóa:------//
+            $(".delete-button").click(function () {//khi click vào nút xóa
+
+                console.log($(this).data().id) //lấy id  (mã sinh viên) tương ứng
+                const link = `https://localhost:44360/api/AdminSP/delete/${$(this).data().id}` //tương tự như get
+
+                $.ajax({
+                    url: link,
+                    method: 'DELETE',//dùng phương thức xóa
+                    contentType: 'application/json',// dữ liệu trả về dưới dạng Json
+                    success: function (rs) {
+                        window.location.href = "https://localhost:44360/Admin/HomeAdmin/Index"
+                    }
+                })
+            })
+
+            //-----Nút Sửa:----//
+            $('.edit-button').click(function () {
+                const linksua = `https://localhost:44360/api/AdminSP/?id=${id}&tensp=${$('.detail > div').eq(1).find('input').val()}&giaban=${$('.detail > div').eq(2).find('input').val()}&loai=${$('.detail > div').eq(3).find('input').val()}&tinhtrang=${$('.detail > div').eq(4).find('input').val()}&anh=${$('.detail > div').eq(5).find('input').val()}&gioitinh=${$('.detail > div').eq(6).find('input').val()}&mota=${$('.detail > div').eq(7).find('input').val()}&anh_hover=${$('.detail > div').eq(8).find('input').val()}`
+                $.ajax({
+                    url: linksua,
+                    method: "PUT",//dùng phương thức put
+                    contentType: "application/json",// dữ liệu trả về dưới dạng Json
+                    success: function (rs) {
+                        // console.log(linksua)
+                        // console.log("success")
+                        window.location.href = "https://localhost:44360/Admin/HomeAdmin/Index"
+                    }
+
+                })
+            })
+
+
+            //------Xử Lý icon hủy:-----//
+            $('.close-detail').click(function () {
+                $('.push-modal-detail').removeClass('push-modal-active');
+                $('.ok-button').css('display', 'none')
+                $('.delete-button').css('display', 'inline-block')
+                $('.edit-button').css('display', 'inline-block')
+                $('.cancel-button').css('display', 'inline-block')
+                $('#FileAnh1').css('display', 'none')
+                $('#FileAnh2').css('display', 'none')
+                $('#TenAnh').css('display', 'block')
+                $('#MaSP').css('border', 'none')
+                $('#TenSP').css('border', 'none')
+                $('#GiaBan').css('border', 'none')
+                $('#Loai').css('border', 'none')
+                $('#TinhTrang').css('border', 'none')
+                $('#GioiTinh').css('border', 'none')
+                $('#MoTa').css('border', 'none')
+
+            })
+
+            //------Xử lý icon Thêm:-----//
+            $(".btn-add").click(function () {
+                //Tắt các nút
+                $('.ok-button').css('display', 'inline-block')
+                $('.delete-button').css('display', 'none')
+                $('.edit-button').css('display', 'none')
+                $('.cancel-button').css('display', 'none')
+                $('#FileAnh1').css('display', 'block')
+                $('#FileAnh2').css('display', 'block')
+                $('#TenAnh').css('display', 'none')
+                $('#MaSP').css('border', '1px solid black')
+                $('#TenSP').css('border', '1px solid black')
+                $('#GiaBan').css('border', '1px solid black')
+                $('#Loai').css('border', '1px solid black')
+                $('#TinhTrang').css('border', '1px solid black')
+                $('#GioiTinh').css('border', '1px solid black')
+                $('#MoTa').css('border', '1px solid black')
+                //Hiện poup:
+                $('.push-modal-detail').toggleClass('push-modal-active');
+                //Reset thông tin về 0:
+                $('.detail > div').eq(0).find('input').val("")
+                $('.detail > div').eq(1).find('input').val("")
+                $('.detail > div').eq(2).find('input').val("")
+                $('.detail > div').eq(3).find('input').val("")
+                $('.detail > div').eq(4).find('input').val("")
+                $('.detail > div').eq(5).find('input').val("")
+                $('.detail > div').eq(6).find('input').val("")
+                $('.detail > div').eq(7).find('input').val("")
+                $('.detail > div').eq(8).find('input').val("")
+            })
+
+            //Reset lại display các button:
+            $('.ok-button').css('display', 'none')
+            $('.delete-button').css('display', 'inline-block')
+            $('.edit-button').css('display', 'inline-block')
+            $('.cancel-button').css('display', 'inline-block')
+            $('#FileAnh1').css('display', 'none')
+            $('#FileAnh2').css('display', 'none')
+            $('#TenAnh').css('display', 'block')
+
+            ////Xử lý button OK
+            $(".ok-button").click(function () {
+                if ($("#MaSP").val() == '' || $("#TenSP").val() == '' || $("#GiaBan").val() == '' || $("#Loai").val() == '' || $("#TinhTrang").val() == '' ||  $("#GioiTinh").val() == '' || $("#MoTa").val() == '' ) {
+                    alert('Vui lòng nhập tất cả các trường!!!')
+                }
+                let linkanh = $('#FileAnh').val().split("\\")[$('#FileAnh').val().split("\\").length - 1].split('.')[0];
+                const link = `https://localhost:44360/api/AdminSP?id=${$("#MaSP").val()}&tensp=${$("#TenSP").val()}&giaban=${$("#GiaBan").val()}&loai=${$("#Loai").val()}&tinhtrang=${$("#TinhTrang").val()}&anh=${linkanh}&gioitinh=${$("#GioiTinh").val()}&mota=${$("#MoTa").val()}&anh_hover=${$(linkanh).val()}`
+                console.log(linkanh);
+                $.ajax({
+                    url: link,
+                    method: 'POST',
+                    contentType: 'application/json',// dữ liệu trả về dưới dạng Json
+                    success: function (rs) {
+                        window.location.href = "https://localhost:44360/Admin/HomeAdmin/Index"
+                    }
+                })
+            })
+
+            //Lọc:
+            $('#filter').click(function () {
+                console.log($('#selectSP').find('option:selected').val())
+                //console.log("Hello")
+                $.ajax({
+                    url: 'https://localhost:44360/api/AdminSP',
+                    method: 'GET',
+                    contentType: 'application/json',// dữ liệu trả về dưới dạng Json
+                    success: function (list) {
+                        $('#main-center').empty()
+                        const len = list.length
+                        
+                        //----Lọc Số Lượng---//
+                        if ($('#selectSP').find('option:selected').val() == 'Quan') {
+                            
+                            for (var i = 0; i < list.length; ++i) {
+                                if (list[i].Loai == 'Quan') {
+
+                                    /* $('#main-center').append(*/
+                                    $('#main-center').append(`
+                                             <div class="col-3">
+                                                <div class="item">
+                                                                                                                                    <div class="product-item">
+                                                                                                                                        <div class="per-product">
+                                                                                                                                            <div class="images-container">
+                                                                                                                                                <div class="product-hover">
+                                                                                                                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                                                                                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                                                                                                                    <a href="#" class="overlay"></a>
+                                                                                                                                                    <a class="product-image" href="detail.html">
+                                                                                                                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh}" class="img-responsive">
+                                                                                                                                                        <span class="product-img-back">
+                                                                                                                                                            <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh_hover}" class="img-responsive">
+                                                                                                                                                        </span>
+                                                                                                                                                    </a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="actions-no hover-box">
+                                                                                                                                                    <div class="actions">
+                                                                                                                                                        <ul class="add-to-links pull-left-none">
+                                                                                                                                                            <li class="link-view pull-left-none">
+                                                                                                                                                                <a data-target="#popup-product-view" data-toggle="modal" href="#" ><i class="fa fa-search"></i>Quick View</a>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="products-textlink clearfix">
+                                                                                                                                                <p id="takeMaSP">${list[i].MaSP}</p>
+                                                                                                                                                <h2 class="product-name">
+                                                                                                                                                    <a title="Name Product" class="getSP" data-id="${list[i].MaSP}" data-name="${list[i].TenSP}" data-giaban="${list[i].GiaBan}" data-loai="${list[i].Loai}" data-tinhtrang="${list[i].TinhTrang}" data-anh="${list[i].Anh}" data-gioitinh="${list[i].GioiTinh}" data-mota="${list[i].MoTa}" data-anh_hover="${list[i].Anh_hover}">${list[i].TenSP}</a>
+                                                                                                                                                </h2>
+                                                                                                                                                <div class="price-box">
+                                                                                                                                                    <span class="regular-price">
+                                                                                                                                                        <span class="price">${list[i].GiaBan}</span>
+
+                                                                                                                                                    </span>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`)
+
+                                }
+
+
+                                    $('.getSP').click(function () {
+                                        $('.push-modal-detail').toggleClass('push-modal-active');
+                                        id = $(this).data().id
+
+                                        //Nút Xóa:
+                                        $(".delete-button").data("id", id)
+                                        console.log($(this).data())
+                                        //Get 1 SP:
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(0).val($(this).data().id)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(1).val($(this).data().name)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(2).val($(this).data().giaban)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(3).val($(this).data().loai)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(4).val($(this).data().tinhtrang)
+
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(5).val($(this).data().anh)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(6).val($(this).data().gioitinh)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(7).val($(this).data().mota)
+                                        $('.detail').find("div > span:nth-child(2)").children("input").eq(8).val($(this).data().anh_hover)
+
+
+
+
+
+
+                                    })
+                                    
+                                
+                            }
+                        }
+                        //-----Lọc Giá SP----//:
+                        if ($('#selectSP').find('option:selected').val() == 'GiaBanTangDan') {
+                            
+                            list.sort(function (a, b) {
+                                return a.GiaBan - b.GiaBan
+                            })
+                            
+                            
+                            for (var i = 0; i < len; ++i) {
+                                /* $('#main-center').append(*/
+                                $('#main-center').append(`
+                                             <div class="col-3">
+                                                <div class="item">
+                                                                                                                                    <div class="product-item">
+                                                                                                                                        <div class="per-product">
+                                                                                                                                            <div class="images-container">
+                                                                                                                                                <div class="product-hover">
+                                                                                                                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                                                                                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                                                                                                                    <a href="#" class="overlay"></a>
+                                                                                                                                                    <a class="product-image" href="detail.html">
+                                                                                                                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh}" class="img-responsive">
+                                                                                                                                                        <span class="product-img-back">
+                                                                                                                                                            <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh_hover}" class="img-responsive">
+                                                                                                                                                        </span>
+                                                                                                                                                    </a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="actions-no hover-box">
+                                                                                                                                                    <div class="actions">
+                                                                                                                                                        <ul class="add-to-links pull-left-none">
+                                                                                                                                                            <li class="link-view pull-left-none">
+                                                                                                                                                                <a data-target="#popup-product-view" data-toggle="modal" href="#" ><i class="fa fa-search"></i>Quick View</a>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="products-textlink clearfix">
+                                                                                                                                                <p id="takeMaSP">${list[i].MaSP}</p>
+                                                                                                                                                <h2 class="product-name">
+                                                                                                                                                    <a title="Name Product" class="getSP" data-id="${list[i].MaSP}" data-name="${list[i].TenSP}" data-giaban="${list[i].GiaBan}" data-loai="${list[i].Loai}" data-tinhtrang="${list[i].TinhTrang}" data-anh="${list[i].Anh}" data-gioitinh="${list[i].GioiTinh}" data-mota="${list[i].MoTa}" data-anh_hover="${list[i].Anh_hover}">${list[i].TenSP}</a>
+                                                                                                                                                </h2>
+                                                                                                                                                <div class="price-box">
+                                                                                                                                                    <span class="regular-price">
+                                                                                                                                                        <span class="price">${list[i].GiaBan}</span>
+
+                                                                                                                                                    </span>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`)
+                            }
+
+                           
+                            
+                            $('.getSP').click(function () {
+                                $('.push-modal-detail').toggleClass('push-modal-active');
+                                id = $(this).data().id
+
+                                //Nút Xóa:
+                                $(".delete-button").data("id", id)
+                                console.log($(this).data())
+                                //Get 1 SP:
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(0).val($(this).data().id)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(1).val($(this).data().name)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(2).val($(this).data().giaban)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(3).val($(this).data().loai)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(4).val($(this).data().tinhtrang)
+
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(5).val($(this).data().anh)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(6).val($(this).data().gioitinh)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(7).val($(this).data().mota)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(8).val($(this).data().anh_hover)
+
+
+
+
+
+
+                            })
+                        }
+                        //-----Lọc Ghi chú----//
+                        if ($('#selectSP').find('option:selected').val() == 'Ao') {
+
+                            for (var i = 0; i < list.length; ++i) {
+                                if (list[i].Loai == 'Ao') {
+
+                                    /* $('#main-center').append(*/
+                                    $('#main-center').append(`
+                                             <div class="col-3">
+                                                <div class="item">
+                                                                                                                                    <div class="product-item">
+                                                                                                                                        <div class="per-product">
+                                                                                                                                            <div class="images-container">
+                                                                                                                                                <div class="product-hover">
+                                                                                                                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                                                                                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                                                                                                                    <a href="#" class="overlay"></a>
+                                                                                                                                                    <a class="product-image" href="detail.html">
+                                                                                                                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh}" class="img-responsive">
+                                                                                                                                                        <span class="product-img-back">
+                                                                                                                                                            <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh_hover}" class="img-responsive">
+                                                                                                                                                        </span>
+                                                                                                                                                    </a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="actions-no hover-box">
+                                                                                                                                                    <div class="actions">
+                                                                                                                                                        <ul class="add-to-links pull-left-none">
+                                                                                                                                                            <li class="link-view pull-left-none">
+                                                                                                                                                                <a data-target="#popup-product-view" data-toggle="modal" href="#" ><i class="fa fa-search"></i>Quick View</a>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="products-textlink clearfix">
+                                                                                                                                                <p id="takeMaSP">${list[i].MaSP}</p>
+                                                                                                                                                <h2 class="product-name">
+                                                                                                                                                    <a title="Name Product" class="getSP" data-id="${list[i].MaSP}" data-name="${list[i].TenSP}" data-giaban="${list[i].GiaBan}" data-loai="${list[i].Loai}" data-tinhtrang="${list[i].TinhTrang}" data-anh="${list[i].Anh}" data-gioitinh="${list[i].GioiTinh}" data-mota="${list[i].MoTa}" data-anh_hover="${list[i].Anh_hover}">${list[i].TenSP}</a>
+                                                                                                                                                </h2>
+                                                                                                                                                <div class="price-box">
+                                                                                                                                                    <span class="regular-price">
+                                                                                                                                                        <span class="price">${list[i].GiaBan}</span>
+
+                                                                                                                                                    </span>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`)
+
+                                }
+
+
+                                $('.getSP').click(function () {
+                                    $('.push-modal-detail').toggleClass('push-modal-active');
+                                    id = $(this).data().id
+
+                                    //Nút Xóa:
+                                    $(".delete-button").data("id", id)
+                                    console.log($(this).data())
+                                    //Get 1 SP:
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(0).val($(this).data().id)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(1).val($(this).data().name)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(2).val($(this).data().giaban)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(3).val($(this).data().loai)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(4).val($(this).data().tinhtrang)
+
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(5).val($(this).data().anh)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(6).val($(this).data().gioitinh)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(7).val($(this).data().mota)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(8).val($(this).data().anh_hover)
+
+
+
+
+
+
+                                })
+
+
+                            }
+                        }
+                        if ($('#selectSP').find('option:selected').val() == 'ComBo') {
+
+                            for (var i = 0; i < list.length; ++i) {
+                                if (list[i].Loai == 'Combo') {
+
+                                    /* $('#main-center').append(*/
+                                    $('#main-center').append(`
+                                             <div class="col-3">
+                                                <div class="item">
+                                                                                                                                    <div class="product-item">
+                                                                                                                                        <div class="per-product">
+                                                                                                                                            <div class="images-container">
+                                                                                                                                                <div class="product-hover">
+                                                                                                                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                                                                                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                                                                                                                    <a href="#" class="overlay"></a>
+                                                                                                                                                    <a class="product-image" href="detail.html">
+                                                                                                                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh}" class="img-responsive">
+                                                                                                                                                        <span class="product-img-back">
+                                                                                                                                                            <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh_hover}" class="img-responsive">
+                                                                                                                                                        </span>
+                                                                                                                                                    </a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="actions-no hover-box">
+                                                                                                                                                    <div class="actions">
+                                                                                                                                                        <ul class="add-to-links pull-left-none">
+                                                                                                                                                            <li class="link-view pull-left-none">
+                                                                                                                                                                <a data-target="#popup-product-view" data-toggle="modal" href="#" ><i class="fa fa-search"></i>Quick View</a>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="products-textlink clearfix">
+                                                                                                                                                <p id="takeMaSP">${list[i].MaSP}</p>
+                                                                                                                                                <h2 class="product-name">
+                                                                                                                                                    <a title="Name Product" class="getSP" data-id="${list[i].MaSP}" data-name="${list[i].TenSP}" data-giaban="${list[i].GiaBan}" data-loai="${list[i].Loai}" data-tinhtrang="${list[i].TinhTrang}" data-anh="${list[i].Anh}" data-gioitinh="${list[i].GioiTinh}" data-mota="${list[i].MoTa}" data-anh_hover="${list[i].Anh_hover}">${list[i].TenSP}</a>
+                                                                                                                                                </h2>
+                                                                                                                                                <div class="price-box">
+                                                                                                                                                    <span class="regular-price">
+                                                                                                                                                        <span class="price">${list[i].GiaBan}</span>
+
+                                                                                                                                                    </span>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`)
+
+                                }
+
+
+                                $('.getSP').click(function () {
+                                    $('.push-modal-detail').toggleClass('push-modal-active');
+                                    id = $(this).data().id
+
+                                    //Nút Xóa:
+                                    $(".delete-button").data("id", id)
+                                    console.log($(this).data())
+                                    //Get 1 SP:
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(0).val($(this).data().id)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(1).val($(this).data().name)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(2).val($(this).data().giaban)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(3).val($(this).data().loai)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(4).val($(this).data().tinhtrang)
+
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(5).val($(this).data().anh)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(6).val($(this).data().gioitinh)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(7).val($(this).data().mota)
+                                    $('.detail').find("div > span:nth-child(2)").children("input").eq(8).val($(this).data().anh_hover)
+
+
+
+
+
+
+                                })
+
+
+                            }
+                        }
+                        //-----Lọc Tất cả SP-----//
+                        if ($('#selectSP').find('option:selected').val() == 'AllSP') {
+                            const len = list.length
+                            $('#main-center').find('.container').append(`<div class="row">`)
+                            for (var i = 0; i < len; ++i) {
+                                /* $('#main-center').append(*/
+                                $('#main-center>.container').find('.row').append(`
+                                             <div class="col-3">
+                                                <div class="item">
+                                                                                                                                    <div class="product-item">
+                                                                                                                                        <div class="per-product">
+                                                                                                                                            <div class="images-container">
+                                                                                                                                                <div class="product-hover">
+                                                                                                                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                                                                                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                                                                                                                    <a href="#" class="overlay"></a>
+                                                                                                                                                    <a class="product-image" href="detail.html">
+                                                                                                                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh}" class="img-responsive">
+                                                                                                                                                        <span class="product-img-back">
+                                                                                                                                                            <img width="280" height="357" alt="The Net Bag in Navy" src="/Assets/LayOutIndex/images/preview/shop/${list[i].Anh_hover}" class="img-responsive">
+                                                                                                                                                        </span>
+                                                                                                                                                    </a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="actions-no hover-box">
+                                                                                                                                                    <div class="actions">
+                                                                                                                                                        <ul class="add-to-links pull-left-none">
+                                                                                                                                                            <li class="link-view pull-left-none">
+                                                                                                                                                                <a data-target="#popup-product-view" data-toggle="modal" href="#" ><i class="fa fa-search"></i>Quick View</a>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="products-textlink clearfix">
+                                                                                                                                                <p id="takeMaSP">${list[i].MaSP}</p>
+                                                                                                                                                <h2 class="product-name">
+                                                                                                                                                    <a title="Name Product" class="getSP" data-id="${list[i].MaSP}" data-name="${list[i].TenSP}" data-giaban="${list[i].GiaBan}" data-loai="${list[i].Loai}" data-tinhtrang="${list[i].TinhTrang}" data-anh="${list[i].Anh}" data-gioitinh="${list[i].GioiTinh}" data-mota="${list[i].MoTa}" data-anh_hover="${list[i].Anh_hover}">${list[i].TenSP}</a>
+                                                                                                                                                </h2>
+                                                                                                                                                <div class="price-box">
+                                                                                                                                                    <span class="regular-price">
+                                                                                                                                                        <span class="price">${list[i].GiaBan}</span>
+
+                                                                                                                                                    </span>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`)
+                            }
+
+                            $('#main-center').find('.container').append(`</div>`)
+                            $('.getSP').click(function () {
+                                $('.push-modal-detail').toggleClass('push-modal-active');
+                                id = $(this).data().id
+
+                                //Nút Xóa:
+                                $(".delete-button").data("id", id)
+                                console.log($(this).data())
+                                //Get 1 SP:
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(0).val($(this).data().id)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(1).val($(this).data().name)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(2).val($(this).data().giaban)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(3).val($(this).data().loai)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(4).val($(this).data().tinhtrang)
+
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(5).val($(this).data().anh)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(6).val($(this).data().gioitinh)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(7).val($(this).data().mota)
+                                $('.detail').find("div > span:nth-child(2)").children("input").eq(8).val($(this).data().anh_hover)
+
+
+
+
+
+
+                            })
+                        }
+                    }
+                })
+            })
+
+
+        })
+
+    </script>
+    <script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+    <script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/animate/js/animate.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/subscribe-newletter/js/jquery.subscribe-better.js"></script>
+
+    <!-- JS Page Level -->
+    <script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+    <script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+    <script src="~/Assets/LayOutIndex/js/theme.js"></script>
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+</body>
+</html>
+

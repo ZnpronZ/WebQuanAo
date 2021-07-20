@@ -1,0 +1,308 @@
+﻿@using ShopQuanAo.Models
+ 
+@{
+    ViewBag.Title = "CategoryAll";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page-left-sidebar.html">Shop</a></li>
+                <li class="active">Category</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section with-sidebar no-padding-top">
+        <h2 class="hidden">page</h2>
+        <div class="container">
+            <div class="row">
+                <div class="category-img container">
+                    <img class="img-responsive" title="Shop" alt="Shop" src="~/Assets/LayOutIndex/images/preview/shop/category/imges-cate.jpg">
+                </div>
+
+                <!-- sidebar -->
+                @{ 
+                    QuanLiQuanAoEntities db = new QuanLiQuanAoEntities();
+                    var mymodel = new multidata();
+                    mymodel.gioitinh = db.GioiTinhs.ToList();
+                    mymodel.loaisp = db.LoaiSPs.ToList();
+                    mymodel.sanpham = db.SanPhams.ToList();
+                }
+                @Html.Partial("_Menu", mymodel);
+                <!-- /sidebar -->
+                <!-- content -->
+                <section class="content col-sm-8 col-md-9">
+                    <div class="row shop-sorting">
+                        <div class="col-sm-12">
+
+                            <div class="list-grid">
+                                <ul>
+                                    <li class="grid"><a href="@Url.Action("CategoryAll","Product")"><span>Grid</span></a></li>
+                                    <li class="list current"><a href="@Url.Action("CategoryList","Product")">List</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row thumbnails products">
+                        <!-- Popup product quick view -->
+                        <div class="modal fade popup-product-view" id="popup-product-view" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="container">
+                                    <div class="modal-content">
+
+                                        <div class="extended_product_page" id="extended_product_page">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h2 class="modal-title">Retro Spring Woman Dress</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row product-single blocks">
+                                                    <div class="col-lg-5 col-md-4 col-sm-5 col-xsp-6">
+                                                        <div class="block">
+                                                            <div class="owl-carousel product-img-carousel">
+                                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom1.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom1.jpg" alt="images" /></a></div>
+                                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom2.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom2.jpg" alt="images" /></a></div>
+                                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom3.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom3.jpg" alt="images" /></a></div>
+                                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom4.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="images/preview/shop/zoom/zoom4.jpg" alt="images" /></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-8 col-sm-7 col-xsp-6">
+                                                        <div class="block">
+                                                            <div class="product-rating clearfix">
+                                                                <span class="rating">
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                    <span class="star"></span>
+                                                                </span>
+                                                                <a href="#">2 reviews</a> / <a href="#">Add a Review</a>
+                                                            </div>
+                                                            <div class="product-price">$154.00</div>
+                                                            <div class="product-qty">
+                                                                <form class="form-inline">
+                                                                    <div class="form-group"><label>Qty:</label><input class="form-control qty" value="1" type="text"></div>
+                                                                    <button type="submit" class="btn btn-theme btn-theme-md">Add to cart</button>
+                                                                </form>
+                                                            </div>
+                                                            <p>Aliquam hendrit rutrum iaculis nullam ondimentum maluada velit beum donec sit amet tristique erosam amet risus mollis malesuada nulla. Vestibulum ante ipsum primis in faucibus orcluctus et ultrices. Vestibulum ante ipsum primis in faucibus.</p>
+                                                            <ul class="list">
+                                                                <li><i class="fa fa-check-square-o"></i>Porttitor euismod pharetra</li>
+                                                                <li><i class="fa fa-check-square-o"></i>Amet massa posuere pretium vestibulum.</li>
+                                                                <li><i class="fa fa-check-square-o"></i>Vestibulum ante ipsum</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup product quick view -->
+                        @foreach (var item in Model.sanpham)
+                        {
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-xsp-12">
+                                <div class="item">
+                                    <div class="product-item">
+                                        <div class="per-product">
+                                            <div class="images-container">
+                                                <div class="product-hover">
+                                                    <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                    <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                    <a class="overlay" href="#"></a>
+                                                    <a href="detail.html" class="product-image">
+                                                        <img width="280" height="357" class="img-responsive" src=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + item.Anh) alt="The Net Bag in Navy">
+                                                        <span class="product-img-back">
+                                                            <img width="280" height="357" class="img-responsive" src=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + item.Anh_hover) alt="The Net Bag in Navy">
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="actions-no hover-box">
+                                                    <div class="actions">
+                                                        <button type="button" title="Add to Cart" class="button btn-cart pull-left-none">
+                                                            <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                        </button>
+                                                        <ul class="add-to-links pull-left-none">
+                                                            <li class="link-view pull-left-none">
+                                                                <a href="#" data-toggle="modal" data-target="#popup-product-view"><i class="fa fa-search"></i>Quick View</a>
+                                                            </li>
+                                                            <li class="pull-left-none">
+                                                                <a href="wishlist.html" title="Add to Wishlist" class="link-wishlist">
+                                                                    <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="products-textlink clearfix">
+                                                <h2 class="product-name">
+                                                    <a href="@Url.Action("ChiTietSP","Product", new { @MaSP = item.MaSP })" title="Name Product">@item.TenSP</a>
+                                                </h2>
+                                                <div class="price-box">
+                                                    <span class="regular-price">
+                                                        <span class="price">@item.GiaBan</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#">«</a></li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+                    <!-- /Pagination -->
+
+                </section>
+                <!-- /content -->
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+
+    <section class="page-section support-page" id="support">
+        <h2 class="hidden">policy</h2>
+        <div class="container">
+            <div class="support-policy">
+                <div class="support-footer-inner row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="row-normal clearfix">
+                            <div class="col-icon">
+                                <div class="support-icon square-round"><i class="icon-plane icons"><span class="hidden">hidden</span></i></div>
+                            </div>
+                            <div class="col-text">
+                                <div class="support-info">
+                                    <div class="info-title">FREE SHIPPING WORLDWIDE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="row-normal clearfix">
+                            <div class="col-icon">
+                                <div class="support-icon square-round"><i class="icon-earphones-alt icons"><span class="hidden">hidden</span></i></div>
+                            </div>
+                            <div class="col-text">
+                                <div class="support-info">
+                                    <div class="info-title">24/7 CUSTOMER SERVICE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="row-normal clearfix">
+                            <div class="col-icon">
+                                <div class="support-icon square-round"><i class="icon-users icons"><span class="hidden">hidden</span></i></div>
+                            </div>
+                            <div class="col-text">
+                                <div class="support-info">
+                                    <div class="info-title">Member Discount</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- /Content area -->
+<!--[if gte IE 9]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/accordion/js/magicaccordion.js"></script>
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-ui-1.11.1.min.js"></script>
+
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+<!--<![endif]-->
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(function () {
+            jQuery("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [75, 300],
+                slide: function (event, ui) {
+                    jQuery("#amount").val("$" + ui.values[0]);
+                    jQuery("#amount_right").val("$" + ui.values[1]);
+                }
+            });
+            jQuery("#amount").val("$" + jQuery("#slider-range").slider("values", 0));
+            jQuery("#amount_right").val("$" + jQuery("#slider-range").slider("values", 1));
+        });
+        /*
+        $(".nav-accordion").magicaccordion({
+            accordion:true,
+            speed: 400,
+            closedSign: 'collapse',
+            openedSign: 'expand',
+            easing: 'easeInOutQuad'
+        });
+        */
+    });
+</script>

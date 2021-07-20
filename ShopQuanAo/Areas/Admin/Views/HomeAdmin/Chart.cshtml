@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Chart";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="~/Areas/Admin/Assets/IndexAdmin/JS/jquery.min.js"></script>
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+<script>
+    $(document).ready(function () {
+
+        LoadData();
+        function LoadData() {
+
+            $.ajax({
+                url: 'https://localhost:44360/api/Chart',
+                method: 'GET',
+                contentType: 'application/json',
+                success: function (data) {
+                    console.log(data)
+                    var Names = []
+                    var Qts1 = []
+                    var Qts2 = []
+                    var Qts3 = []
+                    var Qts4 = []
+                    var Qts5 = []
+                    var Qts6 = []
+                    var Qts7 = []
+                    var Qts8 = []
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].TenNhanVien == "Bùi Quang Hậu") {
+                            Qts1.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Vương Toàn Đạt") {
+                            Qts2.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Nguyễn Trung Giang") {
+                            Qts3.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Bùi Thị Vân") {
+                            Qts4.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Nguyễn Thị Bông") {
+                            Qts5.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Lại Thị Phương") {
+                            Qts6.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Nguyễn Sỹ Thể") {
+                            Qts7.push(data[i].SLBan)
+                        }
+                        if (data[i].TenNhanVien == "Nguyễn Văn Bình") {
+                            Qts8.push(data[i].SLBan)
+                        }
+                        Highcharts.chart('container', {
+                            chart: {
+                                type: 'line'
+                                //pie, spline,area,datetime,bar,column
+                            },
+                            title: {
+                                text: 'Biểu đồ số lượng đã bán được trong năm 2020'
+                            },
+                            subtitle: {
+                                text: 'Source: WorldClimate.com'
+                            },
+                            xAxis: {
+                                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Số lượng đã bán'
+                                }
+                            },
+                            plotOptions: {
+                                line: {
+                                    dataLabels: {
+                                        enabled: true
+                                    },
+                                    enableMouseTracking: false
+                                }
+                            },
+                            series: [{
+                                name: data[0].TenNhanVien,
+                                data: Qts1
+                            },
+                            {
+                                name: data[1].TenNhanVien,
+                                data: Qts2
+                            },
+                            {
+                                name: data[2].TenNhanVien,
+                                data: Qts3
+                            },
+                            {
+                                name: data[3].TenNhanVien,
+                                data: Qts3
+                            },
+                            {
+                                name: data[4].TenNhanVien,
+                                data: Qts4
+                            },
+                            {
+                                name: data[5].TenNhanVien,
+                                data: Qts5
+                            },
+                            {
+                                name: data[6].TenNhanVien,
+                                data: Qts6
+                            },
+                            {
+                                name: data[7].TenNhanVien,
+                                data: Qts7
+                            },
+                            {
+                                name: data[8].TenNhanVien,
+                                data: Qts8
+                            }
+                            ]
+                        });
+                    }
+                }
+
+            })
+
+
+        }
+
+    })
+
+</script>
+

@@ -1,0 +1,963 @@
+﻿@model ShopQuanAo.Models.SanPham
+@{
+    ViewBag.Title = "ChiTietSP";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page-left-sidebar.html">Shop</a></li>
+                <li class="active">Product Name</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section no-padding-top with-sidebar">
+        <h2 class="hidden">page</h2>
+        <!-- Popup product quick view -->
+        <div class="modal fade popup-product-view" id="popup-product-view" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="container">
+                    <div class="modal-content">
+
+                        <div class="extended_product_page" id="extended_product_page">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h2 class="modal-title">Retro Spring Woman Dress</h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row product-single blocks">
+                                    <div class="col-lg-5 col-md-4 col-sm-5 col-xsp-6">
+                                        <div class="block">
+                                            <div class="owl-carousel product-img-carousel">
+                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom1.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom1.jpg" alt="images" /></a></div>
+                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom2.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom2.jpg" alt="images" /></a></div>
+                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom3.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom3.jpg" alt="images" /></a></div>
+                                                <div class="item"><a href="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom4.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom4.jpg" alt="images" /></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-8 col-sm-7 col-xsp-6">
+                                        <div class="block">
+                                            <div class="product-rating clearfix">
+                                                <span class="rating">
+                                                    <span class="star"></span>
+                                                    <span class="star"></span>
+                                                    <span class="star"></span>
+                                                    <span class="star"></span>
+                                                    <span class="star"></span>
+                                                </span>
+                                                <a href="#">2 reviews</a> / <a href="#">Add a Review</a>
+                                            </div>
+                                            <div class="product-price">$154.00</div>
+                                            <div class="product-qty">
+                                                <form action="#" class="form-inline">
+                                                    <div class="form-group"><label>Qty:</label><input class="form-control qty" value="1" type="text"></div>
+                                                    <button type="submit" class="btn btn-theme btn-theme-md">Add to cart</button>
+                                                </form>
+                                            </div>
+                                            <p>Aliquam hendrit rutrum iaculis nullam ondimentum maluada velit beum donec sit amet tristique erosam amet risus mollis malesuada nulla. Vestibulum ante ipsum primis in faucibus orcluctus et ultrices. Vestibulum ante ipsum primis in faucibus.</p>
+                                            <ul class="list">
+                                                <li><i class="fa fa-check-square-o"></i>Porttitor euismod pharetra</li>
+                                                <li><i class="fa fa-check-square-o"></i>Amet massa posuere pretium vestibulum.</li>
+                                                <li><i class="fa fa-check-square-o"></i>Vestibulum ante ipsum</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Popup product quick view -->
+        <div class="row">
+            <div class="container">
+                <div class="product-view">
+                    <div class="product-essential">
+                        <div class="row">
+                            <form action="#" method="post" id="product_addtocart_form">
+                                <input name="form_key" type="hidden" value="GWhHUIrsfG2rwJmb" />
+                                <div class="no-display">
+                                    <input type="hidden" name="product" value="13" /> <input type="hidden" name="related_product" id="related-products-field" value="" />
+                                </div>
+                                <div class="product-img-box clearfix col-md-5 col-sm-5 col-xs-12">
+                                    <div class="product-img-content">
+                                        <div class="product-image product-image-zoom">
+                                            <div class="product-image-gallery">
+                                                <span class="sticker top-left"> <span class="labelnew">New</span> </span>
+                                                <img id="image-main" data-zoom-image="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom1.jpg" class="gallery-image visible  img-responsive" src="~/Assets/LayOutIndex/images/preview/shop/zoom/zoom1.jpg" alt="Fusce nec facilisi" title="Fusce nec facilisi" />
+                                            </div>
+                                        </div>
+                                        <div class="more-views">
+                                            <div class="product-image-thumbs owl-carousel viewMore_img" id="gal_01">
+                                                <div class="item"><a class="thumb-link" data-image=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + Html.DisplayFor(model => model.Anh)) data-zoom-image=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + Html.DisplayFor(model => model.Anh)) href="#" title=""> <img class="img-responsive" src=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + Html.DisplayFor(model => model.Anh)) alt="images" /> </a></div>
+                                                <div class="item"> <a class="thumb-link" data-image=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + Html.DisplayFor(model => model.Anh_hover)) data-zoom-image=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + Html.DisplayFor(model => model.Anh)) href="#" title=""> <img class="img-responsive" src=@Url.Content("~/Assets/LayOutIndex/images/preview/shop/" + Html.DisplayFor(model => model.Anh_hover)) alt="images" /> </a></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-shop col-md-7 col-sm-7 col-xs-12">
+                                    <div class="product-shop-content">
+                                        <div class="product-name">
+                                            <h2> @Html.DisplayFor(model => model.TenSP)</h2>
+                                        </div>
+                                        <p class="no-rating">
+                                            <a href="#">Be the first to review this product</a>
+                                        </p>
+                                        <div class="product-type-data">
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price"> @Html.DisplayFor(model => model.GiaBan)</span>
+                                                </span>
+                                            </div>
+                                            <p class="availability in-stock">Availability: <span>@Html.DisplayFor(model => model.TinhTrang)</span></p>
+                                        </div>
+                                        <div class="short-description">
+                                            @Html.DisplayFor(model => model.MoTa)
+                                        </div>
+                                        <div class="product-options-wrapper">
+                                            <div class="option-view">
+                                                <span>Color:</span>
+                                                <select class="required-entry super-attribute-select">
+                                                    <option value="">- Select color -</option>
+                                                    <option value="4" data-label="blue">Blue</option>
+                                                    <option value="5" data-label="orange">Orange</option>
+                                                    <option value="7" data-label="white">white</option>
+                                                </select>
+                                            </div>
+                                            <div class="option-view">
+                                                <span>Size:</span>
+                                                <select class="required-entry super-attribute-select">
+                                                    <option value="">- Select size -</option>
+                                                    <option value="4" data-label="s">S</option>
+                                                    <option value="5" data-label="xl">XL</option>
+                                                    <option value="7" data-label="xs">XS</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="product-options-bottom">
+                                            <div class="product-qty">
+                                                <label for="qty">Qty:</label>
+                                                <div class="custom-qty">
+                                                    <button type="button" class="reduced items" onclick="var result = document.getElementById('qty');   var qty = result.value;  if (!isNaN(qty) && qty > 1)result.value--; return false;"> <i class="fa fa-minus-square-o"></i> </button>
+                                                    <input type="text" name="txtCart" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" />
+                                                    <button type="button" class="increase items" onclick="var result = document.getElementById('qty');   var qty = result.value;  if (!isNaN(qty)) result.value++;return false;"> <i class="fa fa-plus-square-o"></i> </button>
+                                                </div>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <button type="button" onclick="window.location.href='@Url.Action("AddItem","Cart",new { @MaSP = Html.DisplayFor(model => model.MaSP) , @SoLuong=1 })'" title="Add to Cart" class="button btn-cart">
+                                                    <span> <span class="view-cart">Add to Cart</span> </span>
+                                                </button>
+                                            </div>
+                                            <ul class="add-to-links">
+                                                <li>
+                                                    <a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"> <i class="icon-heart icons"></i> Add to Wishlist </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="link-compare" title="Add to Compare"> <i class="icon-bar-chart icons"></i> Add to Compare </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="link-compare" title="Add to Compare"><i class="fa fa-envelope-o"></i> Email to a Friend </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=3380523222049943&autoLogAppEvents=1" nonce="gCN9XbZt"></script>
+
+                                        <div class="share_this">
+                                            <h2>share this:</h2>
+                                            <ul class="list-inline">
+                                                <li><a class="social-link twitter" href="#"><i class="fa fa-twitter"><span class="hidden">twitter</span></i></a></li>
+                                                <li><a class="social-link google-plus" href="#"><i class="fa fa-google-plus"><span class="hidden">google-plus</span></i></a></li>
+
+                                                <li class="fb-share-butto " data-href="https://www.facebook.com/phongboutique88" data-layout="button" data-size="small"><a target="_blank" a class="social-link facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fphongboutique88&amp;src=sdkpreparse"><i class="fa fa-facebook"><span class="hidden">facebook</span></i></a></li>
+                                                @*<li><a class="social-link facebook" href="#"><i class="fa fa-facebook"><span class="hidden">facebook</span></i></a></li>*@
+                                                <li><a class="social-link tumblr" href="#"><i class="fa fa-tumblr"><span class="hidden">tumblr</span></i></a></li>
+                                                <li><a class="social-link pinterest" href="#"><i class="fa fa-pinterest"><span class="hidden">pinterest</span></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="product-wapper-tab clearfix">
+                            <div class="tabs-wrapper content-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+                                    <li><a href="#reviews" data-toggle="tab">Reviews (2)</a></li>
+                                    <li><a href="#tag" data-toggle="tab">Add Tag</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="description">
+                                        <p>@Html.DisplayFor(model => model.MoTa)</p>
+                                        <div class="tab-pane fade" id="reviews">
+                                            <div id="fb-root"></div>
+                                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=3380523222049943&autoLogAppEvents=1" nonce="6SiHIYr8"></script>
+                                            <div class="fb-comments" data-href="https://www.facebook.com/phongboutique88/posts/2357439197845485" data-width="" data-numposts="5"></div>
+                                            <div id="status">
+                                                <div class="media">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="media-object" src="~/Assets/LayOutIndex/images/preview/team/avatarVinh-icon.jpg" alt="images">
+                                                    </a>
+                                                    <div class="media-body">
+
+                                                        <h4 class="media-heading"><a href="#">Đồng văn Vinh</a></h4>
+                                                        <p class="post-date">July 01, 2014</p>
+                                                        <p>Giao hàng khá nhanh, mình thật sự mong đợi nhiều nhưng mình thất vọng quá vì dài quần k như mong muốn là nó hơi ngắn mà mk cao m6 thôi </p>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <a class="pull-left" href="#">
+
+                                                        <img class="media-object" src="~/Assets/LayOutIndex/images/preview/team/avatarQuang-icon.jpg" alt="images">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><a href="#">Trần Minh Quang</a></h4>
+                                                        <p class="post-date">July 01, 2014</p>
+                                                        <p>
+                                                            Thời gian giao hàng nhanh, quần vải mỏng, form khá đẹp màu cũng ok, nói chung là cũng tạm đc. Đánh giá vì anh shipper dễ thương, shipper có thái độ phục vụ tốt nhất từ trc đến giờ mà mình từng gặp
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <hr />
+
+                                                <h3>Add a Review</h3>
+                                                <!-- // -->
+                                                <form action="#" name="ez-form-add-review" method="post" class="row" id="ez-form-add-review">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="name">Your Name</label>
+                                                            <input type="text" name="name" id="name" placeholder="" value="" size="30" class="form-control placeholder" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="email">E-mail</label>
+                                                            <input type="text" name="email" id="email" placeholder="" value="" size="30" class="form-control placeholder" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="email">Your Rating</label>
+                                                            <span class="rating">
+                                                                <span class="star"></span>
+                                                                <span class="star"></span>
+                                                                <span class="star"></span>
+                                                                <span class="star"></span>
+                                                                <span class="star"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label for="input-message">Your Review</label>
+                                                            <textarea name="message" id="input-message" placeholder="" rows="4" cols="50" class="form-control placeholder"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group-off">
+                                                            <input type="submit" name="submit" class="btn btn-theme" id="submit_btn" value="Submit" />
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                                <!-- // -->
+
+                                            </div>
+                                            <div class="tab-pane fade" id="tag">
+                                                <form action="#" id="addTagForm" method="get">
+                                                    <div class="form-add">
+                                                        <label for="productTagName">Add Your Tags:</label>
+                                                        <div class="input-box">
+                                                            <input type="text" class="input-text required-entry" name="productTagName" id="productTagName" />
+                                                        </div>
+                                                        <button type="button" title="Add Tags" class="button" onclick="submitTagForm()">
+                                                            <span> <span>Add Tags</span> </span>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related_product upsell_product">
+                        <div class="block-title">
+                            <h3>
+                                <span class="title-top">Related Products</span>
+                            </h3>
+                        </div>
+                        <div id="featured-product" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product1.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product1-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product2.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product2-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product3.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product3-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product4.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product4-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product5.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product5-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="#">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product2.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product4-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upsell_product">
+                        <div class="block-title">
+                            <h3>
+                                <span class="title-top">Upsell Products</span>
+                            </h3>
+                        </div>
+                        <div id="sale-product" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product1.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product1-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product2.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product2-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product3.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product3-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product4.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product4-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="detail.html">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product5.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product5-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-item">
+                                    <div class="per-product">
+                                        <div class="images-container">
+                                            <div class="product-hover">
+                                                <span class="sticker top-left"><span class="labelnew">New</span></span>
+                                                <span class="sticker top-right"><span class="labelsale">Sale</span></span>
+                                                <a href="#" class="overlay"></a>
+                                                <a class="product-image" href="#">
+                                                    <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product2.jpg" class="img-responsive" />
+                                                    <span class="product-img-back">
+                                                        <img width="280" height="357" alt="The Net Bag in Navy" src="~/Assets/LayOutIndex/images/preview/shop/product4-hover.jpg" class="img-responsive" />
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="actions-no hover-box">
+                                                <div class="actions">
+                                                    <button class="button btn-cart pull-left-none" title="Add to Cart" type="button">
+                                                        <span><i class="icon_cart_alt"></i><span>Add to Cart</span></span>
+                                                    </button>
+                                                    <ul class="add-to-links pull-left-none">
+                                                        <li class="link-view pull-left-none">
+                                                            <a data-target="#popup-product-view" data-toggle="modal" href="#"><i class="fa fa-search"></i>Quick View</a>
+                                                        </li>
+                                                        <li class="pull-left-none">
+                                                            <a class="link-wishlist" title="Add to Wishlist" href="wishlist.html">
+                                                                <i class="fa fa-heart-o"></i>Add to Wishlist
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="products-textlink clearfix">
+                                            <h2 class="product-name">
+                                                <a title="Name Product" href="#">Name Product</a>
+                                            </h2>
+                                            <div class="price-box">
+                                                <span class="regular-price">
+                                                    <span class="price">$369.00</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section support-page" id="support">
+        <h2 class="hidden">page</h2>
+        <div class="container">
+            <div class="support-policy">
+                <div class="support-footer-inner row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="row-normal clearfix">
+                            <div class="col-icon">
+                                <div class="support-icon square-round"><i class="icon-plane icons"><span class="hidden">hidden</span></i></div>
+                            </div>
+                            <div class="col-text">
+                                <div class="support-info">
+                                    <div class="info-title">FREE SHIPPING WORLDWIDE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="row-normal clearfix">
+                            <div class="col-icon">
+                                <div class="support-icon square-round"><i class="icon-earphones-alt icons"><span class="hidden">hidden</span></i></div>
+                            </div>
+                            <div class="col-text">
+                                <div class="support-info">
+                                    <div class="info-title">24/7 CUSTOMER SERVICE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="row-normal clearfix">
+                            <div class="col-icon">
+                                <div class="support-icon square-round"><i class="icon-users icons"><span class="hidden">hidden</span></i></div>
+                            </div>
+                            <div class="col-text">
+                                <div class="support-info">
+                                    <div class="info-title">Member Discount</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--[if gte IE 9]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/modernizr.custom.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/elevateZoom/jquery.elevateZoom-3.0.8.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+<!--<![endif]-->

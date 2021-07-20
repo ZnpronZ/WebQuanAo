@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@model ShopQuanAo.Data.LoginModel
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Assets/LayOutIndex/images/favicon/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="~/Assets/LayOutIndex/images/favicon/favicon.ico">
+
+<!-- CSS Global -->
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/webfont/css/simple-line-icons.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/fonts/elegantfont/css/elegantfont.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/js/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+<link href="~/Assets/LayOutIndex/css/theme.css" rel="stylesheet" />
+<link href="~/Assets/LayOutIndex/css/responsive.css" rel="stylesheet">
+
+<!-- Content area -->
+<div class="content-area">
+
+    <!-- BREADCRUMBS -->
+    <section class="page-section breadcrumbs">
+        <h2 class="hidden">breadcrumbs</h2>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Login/Register</li>
+            </ul>
+        </div>
+    </section>
+    <!-- /BREADCRUMBS -->
+    <!-- PAGE SECTION WITH SIDEBAR -->
+    <section class="page-section page-login">
+        <h2 class="hidden">page</h2>
+        <div class="container">
+            <div class="row">
+                <div class="login-left col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="block-title">
+                        <h2>sign in</h2>
+                    </div>
+                    <div class="block-content">
+                        <p>Hello, Welcome to your account.</p>
+                        <div class="login-socilal">
+                            <div class="row">
+                                <div id="fb-root"></div>
+                                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=3380523222049943&autoLogAppEvents=1" nonce="zx01wncm"></script>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" ></div>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" style="height:30px">
+                                    <a class="btn-face" href="#"><i class="fa fa-twitter"></i> Sign In With Twitter</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-login-content">
+                            @using (Html.BeginForm(new { @id = "form-login" }))
+                            {
+                            <div class="form-group">
+                                <label for="email">Email adress <em>*</em></label>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control",@id="email", @type = "text", @name = "username", @placeholder = "Email" })
+                            </div>
+                            <div class="form-group">
+                                <label for="password">password *</label>
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @id = "password", @type = "password", @name = "pass", @placeholder = "Password" })
+                            </div>
+                                    <div class="form-group remember-forgot">
+                                        <div class="remember-text">
+                                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox", @type = "checkbox", @name = "remember-me", @id = "checkbox" })<span>Remember me!</span>
+                                        </div>
+                                        <a href="#" class="forgot">Forgot Your password ?</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="login" name="login" title="track" class="button" type="submit" ><span><span>login</span></span></button>
+                                    </div>
+                            }
+                            </div>
+                          @ViewBag.Err 
+                        </div>
+                </div>
+                <div class="login-right col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="block-title">
+                        <h2>create a new account</h2>
+                    </div>
+                    <div class="block-content">
+                        <p>Create your own Rimbus account</p>
+                        <div class="form-creat-content">
+                            <form id="form-creat" method="post">
+                                <div class="form-group">
+                                    <label for="email">Email adress <em>*</em></label>
+                                    <input type="text" class="form-control" id="email2" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <button id="signup" name="signup" title="track" class="button" type="submit"><span><span>sign up</span></span></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="signup-day">
+                            <div class="block-title">
+                                <h2>Sign Up Today And You'll Be Able To</h2>
+                            </div>
+                            <ul>
+                                <li><input type="checkbox" class="checkbox" id="checkbox2"><span>Speed your way through the checkout.</span></li>
+                                <li><input type="checkbox" class="checkbox" id="checkbox3"><span>Track your orders easily.</span></li>
+                                <li><input type="checkbox" class="checkbox" id="checkbox4"><span>Keep a record of all your purchases.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE SECTION WITH SIDEBAR -->
+
+</div>
+<!-- /Content area -->
+<!--[if gte IE 9]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery/jquery-2.1.4.min.js"></script><!--<![endif]-->
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/superfish/js/superfish.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.sticky.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.easing.min.js"></script>
+
+<!-- JS Page Level -->
+<script src="~/Assets/LayOutIndex/js/plugins/owlcarousel2/owl.carousel.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/plugins/waypoints/waypoints.min.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-ajax-mail.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme.js"></script>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="~/Assets/LayOutIndex/js/plugins/jquery.cookie.js"></script>
+<script src="~/Assets/LayOutIndex/js/theme-config.js"></script>
+<!--<![endif]-->
